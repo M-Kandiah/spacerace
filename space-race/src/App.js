@@ -20,7 +20,7 @@ const socket = io("http://localhost:3001")
 import {useContext, useState} from 'react';
 import Lobby from './pages/Lobby'
 
-import NavbarMain from './components/NavBar/Navbar';
+
 import NavbarLogReg from './components/NavBar/Navbar-logreg';
 import Mainmenu from './pages/main-menu/Mainmenu';
 

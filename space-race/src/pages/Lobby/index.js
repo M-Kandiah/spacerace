@@ -5,6 +5,7 @@ import Limit from '../../components/Lobby/Limit';
 import Rounds from '../../components/Lobby/Rounds';
 import {UserContext} from '../../contexts';
 import {category} from '../../categoryList'
+import NavbarNm from '../../components/NavBar/Navbar-nm';
 
 const Quiz = () => {
     const {room, setRoom} = useContext(UserContext)
@@ -22,6 +23,7 @@ const Quiz = () => {
     return (
         <div>
             <form onSubmit={handleSubmit}>
+            <NavbarNm/>
             <Category/>
             <Difficulty/>
             <Rounds/>
