@@ -17,6 +17,7 @@ import Lobby from './pages/Lobby'
 
 import NavbarMain from './components/NavBar/Navbar';
 import NavbarLogReg from './components/NavBar/Navbar-logreg';
+import Mainmenu from './pages/main-menu/Mainmenu';
 
 
 function App() {
@@ -44,7 +45,7 @@ function App() {
               <Redirect to="/main-menu" />
             </Route>
             <PrivateRoute path="/main-menu" exact>
-            <NavbarMain /> 
+            <Mainmenu/>
             <h1>Sam is cool</h1>
             </PrivateRoute>
             <PrivateRoute path="/lobby">
