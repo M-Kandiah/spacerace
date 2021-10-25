@@ -28,9 +28,7 @@ export default function JoinRoom(props) {
                     <input type="submit"/>
                     </form>
                 </Modal.Body>
-                <Modal.Footer>
-                    <Button onClick={props.onHide}>Close</Button>
-                </Modal.Footer>
+                
             </Modal>
         </div>
     )
