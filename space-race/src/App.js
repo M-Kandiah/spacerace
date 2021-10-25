@@ -18,27 +18,24 @@ import Category from './components/Quiz/Category';
 function App() {
   return (
     <>
-      <UserContext.Provider>
-        <AuthProvider>
-          <Router>
-            <Switch>
-              <NoTokenRoute path='/login'>
-                <Login />
-              </NoTokenRoute>
-              <Route path="/register">
-                <Register />
-              </Route>
-              <Route path="/" exact>
-                <Redirect to="/home" />
-              </Route>
-              <PrivateRoute path="/home" exact>
-                <h1>Sam is cool</h1>
-              </PrivateRoute>
-            </Switch>
-          </Router>
-          <h1>Sam is cool</h1>
-        </AuthProvider>
-      </UserContext.Provider>
+      <AuthProvider>
+        <Router>
+          <Switch>
+            <NoTokenRoute path='/login'>
+              <Login /> 
+            </NoTokenRoute>
+            <Route path="/register"> 
+            <Register />
+            </Route> 
+            <Route path="/" exact>
+              <Redirect to="/home" />
+            </Route>
+            <PrivateRoute path="/home" exact>
+            <h1>Sam is cool</h1>
+            </PrivateRoute>
+          </Switch>
+        </Router>
+      </AuthProvider>
     </>
   );
 }

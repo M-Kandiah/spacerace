@@ -7,8 +7,12 @@ const Category = () => {
 
     // useEffect(() => {
 
-    //     const fetchData
-    //     const coat = await fetch('https://opentdb.com/api_category.php')
+    //     const fetchData = () => {
+    //         const coat = await fetch('https://opentdb.com/api_category.php')
+    //     }
+
+    //     fetchData()
+        
     //     const onlyCat = await coat.trivia_categories
     // }
     //     , [])
