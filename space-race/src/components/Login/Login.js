@@ -30,7 +30,7 @@ const Login = () => {
         try {
             setLoading(true)
             await login(formData)
-            history.push('/home')
+            history.push('/main-menu')
         } catch (err) {
             setLoading(false)
             setError(err)

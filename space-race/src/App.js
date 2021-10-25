@@ -14,6 +14,10 @@ import Register from './components/Register/index'
 import {UserContext} from './contexts'
 import {useContext} from 'react';
 
+import NavbarMain from './components/NavBar/Navbar';
+import NavbarLogReg from './components/NavBar/Navbar-logreg';
+
+
 function App() {
   return (
     <>
@@ -21,15 +25,18 @@ function App() {
         <Router>
           <Switch>
             <NoTokenRoute path='/login'>
+              <NavbarLogReg/>
               <Login /> 
             </NoTokenRoute>
             <Route path="/register"> 
+            <NavbarLogReg/>
             <Register />
             </Route> 
             <Route path="/" exact>
-              <Redirect to="/home" />
+              <Redirect to="/main-menu" />
             </Route>
-            <PrivateRoute path="/home" exact>
+            <PrivateRoute path="/main-menu" exact>
+            <NavbarMain /> 
             <h1>Sam is cool</h1>
             </PrivateRoute>
           </Switch>

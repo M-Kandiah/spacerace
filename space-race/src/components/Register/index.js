@@ -34,7 +34,7 @@ const Register = () => {
             await register(formData)
             await login(formData)
             await setLoading(false)
-            history.push('/home')
+            history.push('/main-menu')
         } catch (err) {
             setLoading(false)
             setError(err)
