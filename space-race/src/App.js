@@ -14,10 +14,15 @@ import Register from './components/Register/index'
 import { UserContext } from './contexts'
 import { useContext } from 'react';
 import Category from './components/Quiz/Category';
+import {io} from 'socket.io-client'
+import Room from './components/Quiz/Room';
+
+const socket = io("http://localhost:3001")
 
 function App() {
   return (
     <>
+    <Room/>
       <AuthProvider>
         <Router>
           <Switch>
@@ -40,4 +45,4 @@ function App() {
   );
 }
 
-export default App;
+export default App
