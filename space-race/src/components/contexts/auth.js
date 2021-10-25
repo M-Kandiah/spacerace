@@ -37,7 +37,7 @@ export const AuthProvider = ({ children }) => {
     }
 
     const login = userData => {
-        console.log(userData)
+        
         return new Promise(async (resolve, reject) => {
             try {
                 const options = {
@@ -51,7 +51,7 @@ export const AuthProvider = ({ children }) => {
                 const user = jwt_decode(data.token);
                 setCurrentUser(user);
                 resolve('Login successful')
-                console.log(userData)
+                
             } catch (err) {
                 reject(`Login Error: ${err}`);
                 
