@@ -34,11 +34,16 @@ const Register = () => {
             await register(formData)
             await login(formData)
             await setLoading(false)
-            history.push('/home')
+            history.push('/main-menu')
         } catch (err) {
             setLoading(false)
             setError(err)
         }
+    }
+
+    const handleClick = (e) => {
+        e.preventDefault();
+        window.location.href= '/login'
     }
     
     return (
@@ -49,6 +54,7 @@ const Register = () => {
             <input type="password" name="password" value={formData.password} onChange={handleInput} placeholder="Password" />
             <input type="password" name="passwordConfirmation" value={formData.passwordConfirmation} onChange={handleInput} placeholder="Confirm Password" />
             <input type="submit" className={formIncomplete() ? 'disabled' : 'enabled'} disabled={formIncomplete()} value="Create Account" />
+            <button onClick={handleClick}>Login Instead</button>
         </form>
         { error && <div id="error">{error}</div> }
         { loading && <div id="loading">Creating account . . .</div> }
