@@ -34,7 +34,6 @@ function App() {
             </PrivateRoute>
           </Switch>
         </Router>
-        <h1>Sam is cool</h1>
       </AuthProvider>
     </>
   );
