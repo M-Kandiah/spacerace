@@ -46,7 +46,6 @@ function App() {
             </Route>
             <PrivateRoute path="/main-menu" exact>
             <Mainmenu/>
-            <h1>Sam is cool</h1>
             </PrivateRoute>
             <PrivateRoute path="/lobby">
               <Lobby/>
