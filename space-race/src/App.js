@@ -12,11 +12,19 @@ import NoTokenRoute from './components/routes/NoTokenRoute'
 import PrivateRoute from './components/routes/PrivateRoute' 
 import Register from './components/Register/index'
 import {UserContext} from './contexts'
-import {useContext} from 'react';
+import {useContext, useState} from 'react';
+import Lobby from './pages/Lobby'
 
 function App() {
+  const [room, setRoom] = useState({
+    category: '',
+    rounds: '',
+    limit: '',
+    difficulty: ''
+  });
   return (
     <>
+    <UserContext.Provider value={{room, setRoom}}>
       <AuthProvider>
         <Router>
           <Switch>
@@ -32,9 +40,13 @@ function App() {
             <PrivateRoute path="/home" exact>
             <h1>Sam is cool</h1>
             </PrivateRoute>
+            <PrivateRoute path="/lobby">
+              <Lobby/>
+            </PrivateRoute>
           </Switch>
         </Router>
       </AuthProvider>
+      </UserContext.Provider>
     </>
   );
 }
