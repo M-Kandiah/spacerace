@@ -1,4 +1,3 @@
-
 import './App.css';
 import Login from './components/Login/Login';
 import { AuthProvider } from "./components/contexts/auth"
@@ -12,6 +11,8 @@ import {
 import NoTokenRoute from './components/routes/NoTokenRoute'
 import PrivateRoute from './components/routes/PrivateRoute' 
 import Register from './components/Register/index'
+import {UserContext} from './contexts'
+import {useContext} from 'react';
 
 function App() {
   return (
