@@ -52,12 +52,28 @@ export default function Game() {
     // console.log(data)
     // console.log(answers)
 
-    const handleClick = (e) => {
+
+    let options = {
+        headers: {
+            'Content-Type': 'application/json',
+            "authorization": localStorage.getItem('token')
+        }          
+    }
+
+    let body = {
+       
+            "points": 500
+        
+    }
+
+    const handleClick = async (e) => {
         e.preventDefault()
         console.log(e)
         if (e.target.textContent === correctAnswer) {
-            
             e.target.classList.add('bg-success')
+            console.log( localStorage.getItem('token'))
+            await axios.patch(`https://quizappriamathusansam.herokuapp.com/users/6177f4344f3a7bb5490ad4b5/points`, body, options) // hardcoded for now 
+            console.log('success?')
         } else {
             
             e.target.classList.add('bg-danger')
