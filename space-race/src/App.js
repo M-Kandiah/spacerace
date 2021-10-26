@@ -18,6 +18,7 @@ import Lobby from './pages/Lobby'
 
 import NavbarLogReg from './components/NavBar/Navbar-logreg';
 import Mainmenu from './pages/main-menu/Mainmenu';
+import Waiting from './pages/Lobby/Waiting';
 
 
 function App() {
@@ -51,6 +52,9 @@ function App() {
             </PrivateRoute>
             <PrivateRoute path="/lobby">
               <Lobby/>
+            </PrivateRoute>
+            <PrivateRoute path="/lobby/:id">
+              <Waiting/>
             </PrivateRoute>
           </Switch>
         </Router>
