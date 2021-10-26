@@ -3,6 +3,7 @@ import {UserContext} from '../../contexts';
 import Container from '../../components/Lobby/Container'
 
 import {io} from 'socket.io-client'
+import NavbarNm from '../../components/NavBar/Navbar-nm';
 
 const Waiting = () => {
     const {room, lobby} = useContext(UserContext)
@@ -15,16 +16,13 @@ const Waiting = () => {
     }
     return (
         <div>
+            <NavbarNm/>
             {room.id}
             {/* header with room id & main menu button */}
             {/* container with player info */}
             {/* <Container/> */}
             {/* start game button/waiting p */}
-<<<<<<< HEAD
-            <h1>hello sam</h1>
-=======
             {startButton()}
->>>>>>> b186a408ce49ff96859df8e78bd54a2aa565b0f8
         </div>
     )
 }

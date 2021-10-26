@@ -21,6 +21,7 @@ import Mainmenu from './pages/main-menu/Mainmenu';
 import Waiting from './pages/Lobby/Waiting';
 import Winsleaderboard from './pages/wins-lb/Winsleaderboard';
 import NavbarNm from './components/NavBar/Navbar-nm';
+import Game from './pages/question-maingame/Game';
 
 
 
@@ -61,6 +62,9 @@ function App() {
               </PrivateRoute>
             <PrivateRoute path="/leaderboard">
              <Winsleaderboard/>
+            </PrivateRoute>
+            <PrivateRoute path="/game">
+              <Game/>
             </PrivateRoute>
           </Switch>
         </Router>
