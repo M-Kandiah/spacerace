@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import { Table } from 'react-bootstrap'
+import NavbarNm from '../../components/NavBar/Navbar-nm'
 
 export class Winsleaderboard extends Component {
 
@@ -36,6 +37,7 @@ export class Winsleaderboard extends Component {
         const {wins} = this.state
         return (
             <div>
+                <NavbarNm/>
                 <Table striped bordered condensed hover>
                     <thead>
                         <tr>
