@@ -15,6 +15,7 @@ const Waiting = () => {
             {/* container with player info */}
             <Container/>
             {/* start game button/waiting p */}
+            <h1>hello sam</h1>
         </div>
     )
 }
