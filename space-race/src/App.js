@@ -39,36 +39,35 @@ function App() {
     limit: '',
     difficulty: ''
   });
+  const [lobby, setLobby] = useState('')
+  const [players, setPlayers] = useState([])
   return (
     <>
-      <SocketContextProvider value={socket}>
-        <UserContext.Provider value={{ room, setRoom }}>
-          <AuthProvider>
-            <Router>
-              <Switch>
-                <NoTokenRoute path='/login'>
-                  <NavbarLogReg />
-                  <Login />
-                </NoTokenRoute>
-                <Route path="/register">
-                  <NavbarLogReg />
-                  <Register />
-                </Route>
-                <Route path="/" exact>
-                  <Redirect to="/main-menu" />
-                </Route>
-                <PrivateRoute path="/main-menu" exact>
-                  <Mainmenu />
-                  <h1>Sam is cool</h1>
-                </PrivateRoute>
-                <PrivateRoute path="/lobby">
-                  <Lobby />
-                </PrivateRoute>
-              </Switch>
-            </Router>
-          </AuthProvider>
-        </UserContext.Provider>
-      </SocketContextProvider>
+    <UserContext.Provider value={{room, setRoom, lobby, setLobby, players, setPlayers}}>
+      <AuthProvider>
+        <Router>
+          <Switch>
+            <NoTokenRoute path='/login'>
+              <NavbarLogReg/>
+              <Login /> 
+            </NoTokenRoute>
+            <Route path="/register"> 
+            <NavbarLogReg/>
+            <Register />
+            </Route> 
+            <Route path="/" exact>
+              <Redirect to="/main-menu" />
+            </Route>
+            <PrivateRoute path="/main-menu" exact>
+            <Mainmenu/>
+            </PrivateRoute>
+            <PrivateRoute path="/lobby">
+              <Lobby/>
+            </PrivateRoute>
+          </Switch>
+        </Router>
+      </AuthProvider>
+      </UserContext.Provider>
     </>
   );
 }

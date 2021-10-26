@@ -8,7 +8,7 @@ import { category } from '../../categoryList'
 import NavbarNm from '../../components/NavBar/Navbar-nm';
 
 const Quiz = () => {
-    const { room, setRoom } = useContext(UserContext)
+    const {room, setRoom, setLobby} = useContext(UserContext)
     const handleSubmit = (e) => {
         e.preventDefault()
         console.log(e.target)
@@ -19,6 +19,7 @@ const Quiz = () => {
             limit: e.target[5].value
         });
         console.log(room)
+        setLobby('host')
     };
     // const url = `https://opentdb.com/api.php?amount=${amt}&category=${category}&difficulty=${difficulty}&type=multiple`;
     return (
