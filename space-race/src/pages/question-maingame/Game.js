@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import NavbarNm from '../../components/NavBar/Navbar-nm';
+import CircleTimer from '../../components/Circletimer/CircleTimer';
 
 
 
@@ -13,6 +14,7 @@ export default function Game() {
     const [isFetched, setIsFetched] = useState(false);
     const [question, setQuestion] = useState("")
     const [correctAnswer, setCorrectAnswer] = useState("")
+    const [correct, setCorrect] = useState('')
 
     function func(a, b) {
         return 0.5 - Math.random();
@@ -52,11 +54,13 @@ export default function Game() {
 
     const handleClick = (e) => {
         e.preventDefault()
-        console.log(e.target.textContent)
+        console.log(e)
         if (e.target.textContent === correctAnswer) {
-            alert('woopty fucking doo')
+            
+            e.target.classList.add('bg-success')
         } else {
-            alert('you wrong bish')
+            
+            e.target.classList.add('bg-danger')
         }
 
     }
@@ -73,6 +77,7 @@ export default function Game() {
                 <button id="answer3" onClick={handleClick} className="w-50">{isFetched ? answers[2] : null}</button>
                 <button id="answer4" onClick={handleClick} className="w-50">{isFetched ? answers[3] : null}</button>
             </div>
+            {isFetched ? <CircleTimer/>: null}
         </>
     )
 }
