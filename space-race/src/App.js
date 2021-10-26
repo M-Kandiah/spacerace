@@ -31,13 +31,11 @@ import Winsleaderboard from './pages/wins-lb/Winsleaderboard';
 import NavbarNm from './components/NavBar/Navbar-nm';
 
 
-export const socket = io("http://localhost:3001");
+export const socket = io("http://localhost:3001",{ transports: ['polling'] });
 socket.on('connect', () => {
   console.log(`You are connected with ${socket.id}`)
 })
-socket.on('join-room', (roomName) => {
-  socket.join(roomName)
-})
+
 
 function App() {
   const [room, setRoom] = useState({

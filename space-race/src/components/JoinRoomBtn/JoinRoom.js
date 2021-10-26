@@ -12,7 +12,7 @@ export default function JoinRoom(props) {
         socket.emit('join-room', roomId)
     }
 
-    socket.on('joined', (roomId) => console.log(`Someone has joined your room`))
+    socket.on('joined-room', (roomId) => console.log(`Someone has joined your room : ${roomId}`))
 
     return (
         <div>
