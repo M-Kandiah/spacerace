@@ -1,8 +1,12 @@
 import React from 'react'
 import io from 'socket.io-client'
-import { useState } from 'react'
+import { useState, useContext } from 'react'
+import { SocketContext } from '../../contexts/SocketContext'
+
 
 const Room = () => {
+
+const {socket, setSocket} = useContext(SocketContext)
 
     const onsubmit = (e) => {
         e.preventDefault()
