@@ -8,10 +8,11 @@ export default function JoinRoom(props) {
     
     const handlesubmit = (e) => {
         e.preventDefault()
-        const roomName = e.target[0].value
-        const id = socket.id
-        socket.emit('join-room', roomName, id)
+        const roomId = e.target[0].value
+        socket.emit('join-room', roomId)
     }
+
+    socket.on('joined', (roomId) => console.log(`Someone has joined your room`))
 
     return (
         <div>

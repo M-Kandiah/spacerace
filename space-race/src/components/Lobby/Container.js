@@ -3,13 +3,15 @@ import { UserContext } from '../../contexts'
 
 const Container = () => {
     // get number of players here then map them to a list
-    const {players} = useContext(UserContext);
+    const players = []
     const renderPlayers = () => {
         return players.map(p => <li>{p}</li>);
     }
     return (
         <div>
+            <ul>
             {renderPlayers()}
+            </ul>
         </div>
     )
 }

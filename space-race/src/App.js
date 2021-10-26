@@ -24,16 +24,20 @@ import NavbarLogReg from './components/NavBar/Navbar-logreg';
 import Mainmenu from './pages/main-menu/Mainmenu';
 import SocketContextProvider from './contexts/SocketContext';
 
-export const socket = io("http://localhost:3001");
 
+import axios from 'axios'
+import Waiting from './pages/Lobby/Waiting';
+import Winsleaderboard from './pages/wins-lb/Winsleaderboard';
+import NavbarNm from './components/NavBar/Navbar-nm';
+
+
+export const socket = io("http://localhost:3001");
 socket.on('connect', () => {
   console.log(`You are connected with ${socket.id}`)
 })
-
-// socket.on('join-room', (roomName) => {
-//   socket.join(roomName)
-// })
-
+socket.on('join-room', (roomName) => {
+  socket.join(roomName)
+})
 
 function App() {
   const [room, setRoom] = useState({
@@ -66,6 +70,12 @@ function App() {
             </PrivateRoute>
             <PrivateRoute path="/lobby">
               <Lobby/>
+            </PrivateRoute>
+            <PrivateRoute path="/waitingroom">
+              <Waiting/>
+              </PrivateRoute>
+            <PrivateRoute path="/leaderboard">
+             <Winsleaderboard/>
             </PrivateRoute>
           </Switch>
         </Router>
