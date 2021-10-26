@@ -25,11 +25,14 @@ import Mainmenu from './pages/main-menu/Mainmenu';
 import SocketContextProvider from './contexts/SocketContext';
 
 export const socket = io("http://localhost:3001");
+
 socket.on('connect', () => {
   console.log(`You are connected with ${socket.id}`)
-  const dogs = ['poodle', 'rottweiler', 'labrador']
-  socket.emit('say-hi', dogs)
 })
+
+// socket.on('join-room', (roomName) => {
+//   socket.join(roomName)
+// })
 
 
 function App() {
