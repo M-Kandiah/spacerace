@@ -14,10 +14,12 @@ import Register from './components/Register/index'
 import {UserContext} from './contexts'
 import {useContext, useState} from 'react';
 import Lobby from './pages/Lobby'
-
+import axios from 'axios'
 
 import NavbarLogReg from './components/NavBar/Navbar-logreg';
 import Mainmenu from './pages/main-menu/Mainmenu';
+import Winsleaderboard from './pages/wins-lb/Winsleaderboard';
+
 
 
 function App() {
@@ -27,6 +29,9 @@ function App() {
     limit: '',
     difficulty: ''
   });
+  
+
+ 
   return (
     <>
     <UserContext.Provider value={{room, setRoom}}>
@@ -49,6 +54,9 @@ function App() {
             </PrivateRoute>
             <PrivateRoute path="/lobby">
               <Lobby/>
+            </PrivateRoute>
+            <PrivateRoute path="/leaderboard">
+              <Winsleaderboard/>
             </PrivateRoute>
           </Switch>
         </Router>
