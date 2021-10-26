@@ -18,6 +18,7 @@ import axios from 'axios'
 
 import NavbarLogReg from './components/NavBar/Navbar-logreg';
 import Mainmenu from './pages/main-menu/Mainmenu';
+import Waiting from './pages/Lobby/Waiting';
 import Winsleaderboard from './pages/wins-lb/Winsleaderboard';
 import NavbarNm from './components/NavBar/Navbar-nm';
 
@@ -55,6 +56,9 @@ function App() {
             <PrivateRoute path="/lobby">
               <Lobby/>
             </PrivateRoute>
+            <PrivateRoute path="/lobby/:id">
+              <Waiting/>
+              </PrivateRoute>
             <PrivateRoute path="/leaderboard">
              <Winsleaderboard/>
             </PrivateRoute>
