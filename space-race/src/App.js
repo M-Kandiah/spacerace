@@ -56,7 +56,7 @@ function App() {
             <PrivateRoute path="/lobby">
               <Lobby/>
             </PrivateRoute>
-            <PrivateRoute path="/lobby/:id">
+            <PrivateRoute path="/waitingroom">
               <Waiting/>
               </PrivateRoute>
             <PrivateRoute path="/leaderboard">
