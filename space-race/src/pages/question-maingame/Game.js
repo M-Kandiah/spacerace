@@ -60,10 +60,14 @@ export default function Game() {
         }          
     }
 
-    let body = {
+    let bodyCorrect = {
        
             "points": 500
         
+    }
+
+    let bodyWrong = {
+        "points": -250
     }
 
     const handleClick = async (e) => {
@@ -72,10 +76,10 @@ export default function Game() {
         if (e.target.textContent === correctAnswer) {
             e.target.classList.add('bg-success')
             console.log( localStorage.getItem('token'))
-            await axios.patch(`https://quizappriamathusansam.herokuapp.com/users/6177f4344f3a7bb5490ad4b5/points`, body, options) // hardcoded for now 
+            await axios.patch(`https://quizappriamathusansam.herokuapp.com/users/6177f4344f3a7bb5490ad4b5/points`, bodyCorrect, options) // hardcoded for user big boy sam, get user ID in auth context and put it in local storage and then use ${localStorage.getItem(userID)}
             console.log('success?')
         } else {
-            
+            await axios.patch(`https://quizappriamathusansam.herokuapp.com/users/6177f4344f3a7bb5490ad4b5/points`, bodyWrong, options) // hardcoded for user big boy sam, get user ID in auth context and put it in local storage and then use ${localStorage.getItem(userID)}
             e.target.classList.add('bg-danger')
         }
 
