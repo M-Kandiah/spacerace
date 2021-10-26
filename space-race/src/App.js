@@ -19,6 +19,7 @@ import axios from 'axios'
 import NavbarLogReg from './components/NavBar/Navbar-logreg';
 import Mainmenu from './pages/main-menu/Mainmenu';
 import Winsleaderboard from './pages/wins-lb/Winsleaderboard';
+import NavbarNm from './components/NavBar/Navbar-nm';
 
 
 
@@ -55,7 +56,7 @@ function App() {
               <Lobby/>
             </PrivateRoute>
             <PrivateRoute path="/leaderboard">
-              <Winsleaderboard/>
+             <Winsleaderboard/>
             </PrivateRoute>
           </Switch>
         </Router>
