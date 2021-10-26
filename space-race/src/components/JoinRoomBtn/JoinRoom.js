@@ -1,18 +1,22 @@
-import React from 'react'
+import React, {useContext} from 'react'
+import {useHistory} from 'react-router-dom'
 import { Modal, Button } from 'react-bootstrap'
-import { io } from 'socket.io-client';
-import { socket } from '../../App';
+import {UserContext} from '../../contexts'
+
+import {io} from 'socket.io-client'
+
 export default function JoinRoom(props) {
-
+    const history = useHistory()
     const [modalShow, setModalShow] = React.useState(false);
-    
-    const handlesubmit = (e) => {
-        e.preventDefault()
-        const roomId = e.target[0].value
-        socket.emit('join-room', roomId)
-    }
+    const {lobby, setLobby} = useContext(UserContext)
 
-    socket.on('joined-room', (roomId) => console.log(`Someone has joined your room : ${roomId}`))
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        const socket = io('http://localhost:3001')
+        socket.emit("join-room", e.target[0].value)
+        setLobby('waiting');
+        history.push("/waitingroom")
+    }
 
     return (
         <div>
@@ -33,9 +37,9 @@ export default function JoinRoom(props) {
                     </Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <form onSubmit={handlesubmit}>
-                        <input type="text" placeholder="Enter Room Code" />
-                        <input type="submit" />
+                    <form onSubmit={handleSubmit}>
+                    <input type="text" placeholder="Enter Room Code"/>
+                    <input type="submit"/>
                     </form>
                 </Modal.Body>
 
