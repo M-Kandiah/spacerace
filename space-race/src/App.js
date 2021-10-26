@@ -17,9 +17,8 @@ import Category from './components/Quiz/Category';
 import {io} from 'socket.io-client'
 import Room from './components/Quiz/Room';
 const socket = io("http://localhost:3001")
-import {useContext, useState} from 'react';
+import {useState} from 'react';
 import Lobby from './pages/Lobby'
-
 
 import NavbarLogReg from './components/NavBar/Navbar-logreg';
 import Mainmenu from './pages/main-menu/Mainmenu';
