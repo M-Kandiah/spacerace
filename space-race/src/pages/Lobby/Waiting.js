@@ -4,6 +4,7 @@ import {useHistory} from 'react-router-dom'
 import Container from '../../components/Lobby/Container'
 import { socket } from '../../App';
 import {io} from 'socket.io-client'
+import NavbarNm from '../../components/NavBar/Navbar-nm';
 
 const Waiting = () => {
     const {room, lobby} = useContext(UserContext)
@@ -38,6 +39,7 @@ const Waiting = () => {
     // when host starts game do a broadcast thing
     return (
         <div>
+            <NavbarNm/>
             {room.id}
             {/* header with room id & main menu button */}
             {/* container with player info */}
