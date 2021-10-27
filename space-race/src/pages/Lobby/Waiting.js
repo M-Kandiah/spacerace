@@ -7,20 +7,22 @@ import {io} from 'socket.io-client'
 import NavbarNm from '../../components/NavBar/Navbar-nm';
 
 const Waiting = () => {
-    const {room, lobby} = useContext(UserContext)
+    const {room, lobby, setRoom} = useContext(UserContext)
+
     const history = useHistory()
     const [user,setUser] = useState('')
 
     
-    socket.on("start", (roomId,url) => {
+    socket.on("start", (room,url) => {
         console.log("hello")
+        setRoom(room)
         history.push(url)
     })
 
     const handleClick = (e) => {
         e.preventDefault()
-        console.log(room.id)
-        socket.emit("start-game", room.id, "/game")
+        console.log(room)
+        socket.emit("start-game", room, "/game")
     }
     
     const startButton = () => {
