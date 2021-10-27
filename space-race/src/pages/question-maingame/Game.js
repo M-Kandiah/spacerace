@@ -15,10 +15,15 @@ export default function Game() {
     const [correctAnswer, setCorrectAnswer] = useState("")
     const [correct, setCorrect] = useState('')
     let [qCounter, setQCounter] = useState(0)
+    let [pointCounter, setPointCounter] = useState(10)
+    let [disabled, setDisabled] = useState(false)
 
     function func(a, b) {
         return 0.5 - Math.random();
     }
+
+
+
 
     function useInterval(callback, delay) {
         const savedCallback = useRef();
@@ -52,6 +57,9 @@ export default function Game() {
         newAnswers.push(data.results[qCounter].correct_answer, data.results[qCounter].incorrect_answers[0], data.results[qCounter].incorrect_answers[1], data.results[qCounter].incorrect_answers[2])
         newAnswers.sort(func)
         setAnswers(newAnswers)
+
+
+
         let newCorrectAnswer = data.results[qCounter].correct_answer
         setCorrectAnswer(newCorrectAnswer)
         console.log(newCorrectAnswer)
@@ -63,7 +71,11 @@ export default function Game() {
             setAnswers(answers)
             setCorrectAnswer(correctAnswer)
         })
+        setPointCounter(10)
+        setDisabled(false)
     }, 10100);
+
+
 
 
     async function boi() {
@@ -87,6 +99,9 @@ export default function Game() {
         // console.log(question)
         setQuestion(question)
         socket.emit('sendData', question, answers, correctAnswer)
+
+
+
         setIsFetched(true)
     }
 
@@ -97,8 +112,15 @@ export default function Game() {
     }, [])
 
 
-    // console.log(data)
-    // console.log(answers)
+    useInterval(() => {
+        setPointCounter(pointCounter - 1)
+        console.log(pointCounter)
+
+
+    }, 1000)
+
+
+
     let options = {
         headers: {
             'Content-Type': 'application/json',
@@ -108,10 +130,12 @@ export default function Game() {
 
     
     let bodyCorrect = {
-        "points": 500
+
+        "points": 10 * pointCounter
+
     }
     let bodyWrong = {
-        "points": -250
+        "points": -20
     }
     const handleClick = async (e) => {
         e.preventDefault()
@@ -122,9 +146,12 @@ export default function Game() {
             console.log(localStorage.getItem('token'))
             await axios.patch(`https://quizappriamathusansam.herokuapp.com/users/${id}/points`, bodyCorrect, options) // hardcoded for user big boy sam, get user ID in auth context and put it in local storage and then use ${localStorage.getItem(userID)}
             console.log('success?')
+            setDisabled(true)
+
         } else {
             await axios.patch(`https://quizappriamathusansam.herokuapp.com/users/${id}/points`, bodyWrong, options) // hardcoded for user big boy sam, get user ID in auth context and put it in local storage and then use ${localStorage.getItem(userID)}
             e.target.classList.add('bg-danger')
+            setDisabled(true)
         }
     }
     socket.on('sent', (question, answers, correctAnswer) => {
@@ -132,15 +159,17 @@ export default function Game() {
         setAnswers(answers)
         setCorrectAnswer(correctAnswer)
     })
+
+
     return (
         <>
             <NavbarNm />
             <p id='question'>{isFetched ? question : null}</p>
             <div className="d-flex flex-row flex-wrap">
-                <button key={qCounter + 111} id="answer1" onClick={handleClick} className="w-50">{isFetched ? answers[0] : null}</button>
-                <button key={qCounter + 222} id="answer2" onClick={handleClick} className="w-50">{isFetched ? answers[1] : null}</button>
-                <button key={qCounter + 333} id="answer3" onClick={handleClick} className="w-50">{isFetched ? answers[2] : null}</button>
-                <button key={qCounter + 444} id="answer4" onClick={handleClick} className="w-50">{isFetched ? answers[3] : null}</button>
+                <button key={qCounter + 111} id="answer1" onClick={handleClick} className="w-50" disabled={disabled}>{isFetched ? answers[0] : null}</button>
+                <button key={qCounter + 222} id="answer2" onClick={handleClick} className="w-50" disabled={disabled}>{isFetched ? answers[1] : null}</button>
+                <button key={qCounter + 333} id="answer3" onClick={handleClick} className="w-50" disabled={disabled}>{isFetched ? answers[2] : null}</button>
+                <button key={qCounter + 444} id="answer4" onClick={handleClick} className="w-50" disabled={disabled}>{isFetched ? answers[3] : null}</button>
             </div>
             {isFetched ? <CircleTimer key={qCounter} /> : null}
         </>
