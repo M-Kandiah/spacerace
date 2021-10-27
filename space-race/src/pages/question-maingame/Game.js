@@ -3,6 +3,7 @@ import axios from 'axios'
 import NavbarNm from '../../components/NavBar/Navbar-nm';
 import CircleTimer from '../../components/Circletimer/CircleTimer';
 import {UserContext} from '../../contexts'
+import { socket } from '../../App';
 
 
 
@@ -22,27 +23,34 @@ export default function Game() {
     }
 
     async function boi() {
-        const result = await axios(`https://opentdb.com/api.php?amount=${room.rounds*5}&category=${room.category}&difficulty=${room.difficulty}type=multiple`,);
+        console.log(room)
+        const result = await axios(`https://opentdb.com/api.php?amount=${parseInt(room.rounds)*5}&category=${parseInt(room.category)}&difficulty=${room.difficulty}&type=multiple`);
         setData(result.data)
-        let answers = []
-        answers.push(result.data.results[0].correct_answer, result.data.results[0].incorrect_answers[0], result.data.results[0].incorrect_answers[1], result.data.results[0].incorrect_answers[2])
-        // console.log(answers)
-        answers.sort(func)
-        setAnswers(answers)
+        console.log(data)
+        console.log(result)
+        for(let i=0; i<result.data.results.length; i++) {
+            let answers = []
+            answers.push(result.data.results[i].correct_answer, result.data.results[i].incorrect_answers[0], result.data.result[i].incorrect_answers[1], result.data.results[i].incorrect_answers[2])
+            // console.log(answers)
+            answers.sort(func)
+            setAnswers(answers)
+    
+            let correctAnswer = result.data.results[i].correct_answer
+            console.log(correctAnswer)
+            setCorrectAnswer(correctAnswer)
+    
+            let question
+            question = result.data.results[i].question
+            // console.log(question)
+            question = question.replace(/&amp;/g, "&").replace(/&#039;/g, "").replace(/&quot;/g, "''").replace(/&eacute;/g, "é")
+            // console.log(question)
+            setQuestion(question)
+    
+            socket.emit('sendData', question,answers,correctAnswer)
+    
+            setIsFetched(true)
 
-        let correctAnswer = result.data.results[0].correct_answer
-        console.log(correctAnswer)
-        setCorrectAnswer(correctAnswer)
-
-        let question
-        question = result.data.results[0].question
-        // console.log(question)
-        question = question.replace(/&amp;/g, "&").replace(/&#039;/g, "").replace(/&quot;/g, "''").replace(/&eacute;/g, "é")
-        // console.log(question)
-        setQuestion(question)
-
-
-        setIsFetched(true)
+        }
     }
 
 
@@ -73,20 +81,25 @@ export default function Game() {
 
     const handleClick = async (e) => {
         e.preventDefault()
+        const id = localStorage.getItem("userId")
         console.log(e)
         if (e.target.textContent === correctAnswer) {
             e.target.classList.add('bg-success')
             console.log( localStorage.getItem('token'))
-            await axios.patch(`https://quizappriamathusansam.herokuapp.com/users/6177f4344f3a7bb5490ad4b5/points`, bodyCorrect, options) // hardcoded for user big boy sam, get user ID in auth context and put it in local storage and then use ${localStorage.getItem(userID)}
+            await axios.patch(`https://quizappriamathusansam.herokuapp.com/users/${id}/points`, bodyCorrect, options) // hardcoded for user big boy sam, get user ID in auth context and put it in local storage and then use ${localStorage.getItem(userID)}
             console.log('success?')
         } else {
-            await axios.patch(`https://quizappriamathusansam.herokuapp.com/users/6177f4344f3a7bb5490ad4b5/points`, bodyWrong, options) // hardcoded for user big boy sam, get user ID in auth context and put it in local storage and then use ${localStorage.getItem(userID)}
+            await axios.patch(`https://quizappriamathusansam.herokuapp.com/users/${id}/points`, bodyWrong, options) // hardcoded for user big boy sam, get user ID in auth context and put it in local storage and then use ${localStorage.getItem(userID)}
             e.target.classList.add('bg-danger')
         }
 
     }
 
-
+    socket.on('sent', (question,answers,correctAnswer) =>{
+        setQuestion(question)
+        setAnswers(answers)
+        setCorrectAnswer(correctAnswer)
+    })
 
     return (
         <>
