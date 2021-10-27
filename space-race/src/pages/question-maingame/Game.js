@@ -1,14 +1,15 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 import axios from 'axios'
 import NavbarNm from '../../components/NavBar/Navbar-nm';
 import CircleTimer from '../../components/Circletimer/CircleTimer';
-
+import {UserContext} from '../../contexts'
 
 
 
 
 
 export default function Game() {
+    const {room} = useContext(UserContext)
     const [data, setData] = useState()
     const [answers, setAnswers] = useState()
     const [isFetched, setIsFetched] = useState(false);
@@ -21,7 +22,7 @@ export default function Game() {
     }
 
     async function boi() {
-        const result = await axios('https://opentdb.com/api.php?amount=1&type=multiple',);
+        const result = await axios(`https://opentdb.com/api.php?amount=${room.rounds*5}&category=${room.category}&difficulty=${room.difficulty}type=multiple`,);
         setData(result.data)
         let answers = []
         answers.push(result.data.results[0].correct_answer, result.data.results[0].incorrect_answers[0], result.data.results[0].incorrect_answers[1], result.data.results[0].incorrect_answers[2])
