@@ -13,7 +13,8 @@ export default function JoinRoom(props) {
     const handleSubmit = (e) => {
         e.preventDefault();
         const socket = io('http://localhost:3001')
-        socket.emit("join-room", e.target[0].value)
+        const user = "MathusanKandiah"
+        socket.emit("join-room", e.target[0].value, user)
         setLobby('waiting');
         history.push("/waitingroom")
     }
@@ -42,7 +43,7 @@ export default function JoinRoom(props) {
                     <input type="submit"/>
                     </form>
                 </Modal.Body>
-                
+
             </Modal>
         </div>
     )

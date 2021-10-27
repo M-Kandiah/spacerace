@@ -4,10 +4,9 @@ import Category from '../../components/Lobby/Category';
 import Difficulty from '../../components/Lobby/Difficulty';
 import Limit from '../../components/Lobby/Limit';
 import Rounds from '../../components/Lobby/Rounds';
-import {UserContext} from '../../contexts';
-import {category} from '../../categoryList'
+import { UserContext } from '../../contexts';
+import { category } from '../../categoryList'
 import NavbarNm from '../../components/NavBar/Navbar-nm';
-
 import {io} from 'socket.io-client'
 
 const Quiz = () => {
@@ -33,12 +32,12 @@ const Quiz = () => {
     return (
         <div>
             <form onSubmit={handleSubmit}>
-            <NavbarNm/>
-            <Category/>
-            <Difficulty/>
-            <Rounds/>
-            <Limit/>
-            <input type="submit" value="Create"></input>
+                <NavbarNm />
+                <Category />
+                <Difficulty />
+                <Rounds />
+                <Limit />
+                <input type="submit" value="Create"></input>
             </form>
         </div>
     )

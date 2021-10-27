@@ -29,6 +29,7 @@ const Register = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        
         try {
             setLoading(true)
             await register(formData)
