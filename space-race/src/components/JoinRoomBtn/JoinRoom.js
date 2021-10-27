@@ -2,7 +2,7 @@ import React, {useContext} from 'react'
 import {useHistory} from 'react-router-dom'
 import { Modal, Button } from 'react-bootstrap'
 import {UserContext} from '../../contexts'
-
+import { socket } from '../../App'
 import {io} from 'socket.io-client'
 
 export default function JoinRoom(props) {
@@ -13,9 +13,9 @@ export default function JoinRoom(props) {
     const handleSubmit = (e) => {
         e.preventDefault();
         const socket = io('http://localhost:3001')
-        const user = "MathusanKandiah"
-        const room =  e.target[0].value
-        socket.emit("join-room",room, user)
+        const user = localStorage.getItem('username')
+        const roomId =  e.target[0].value
+        socket.emit("join-room",roomId, user)
         setLobby('waiting');
         history.push("/waitingroom")
     }

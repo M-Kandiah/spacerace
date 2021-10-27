@@ -5,15 +5,8 @@ import NavbarNm from '../../components/NavBar/Navbar-nm';
 import CircleTimer from '../../components/Circletimer/CircleTimer';
 import { UserContext } from '../../contexts'
 import { socket } from '../../App';
-
-
-
-
-
 export default function Game() {
-
     const history = useHistory()
-
     const { room } = useContext(UserContext)
     const [data, setData] = useState()
     const [answers, setAnswers] = useState()
@@ -35,12 +28,10 @@ export default function Game() {
 
     function useInterval(callback, delay) {
         const savedCallback = useRef();
-
         // Remember the latest callback.
         useEffect(() => {
             savedCallback.current = callback;
         }, [callback]);
-
         // Set up the interval.
         useEffect(() => {
             function tick() {
@@ -50,13 +41,13 @@ export default function Game() {
                 let id = setInterval(tick, delay);
                 return () => clearInterval(id);
             }
-
         }, [delay]);
+
     }
+
 
     useInterval(() => {
         // Your custom logic here
-
         console.log(qCounter)
         if (qCounter === data.results.length) {
             return history.push(`/main-menu`)
@@ -73,11 +64,9 @@ export default function Game() {
         let newCorrectAnswer = data.results[qCounter].correct_answer
         setCorrectAnswer(newCorrectAnswer)
         console.log(newCorrectAnswer)
-
         let newQuestion = data.results[qCounter].question
         newQuestion = newQuestion.replace(/&amp;/g, "&").replace(/&#039;/g, "").replace(/&quot;/g, "''").replace(/&eacute;/g, "é")
         setQuestion(newQuestion)
-
         socket.on('sent', (question, answers, correctAnswer) => {
             setQuestion(question)
             setAnswers(answers)
@@ -97,30 +86,26 @@ export default function Game() {
         setData(result.data)
         // console.log(data)
         // console.log(result)
-
         let answers = []
         answers.push(result.data.results[qCounter].correct_answer, result.data.results[qCounter].incorrect_answers[0], result.data.results[qCounter].incorrect_answers[1], result.data.results[qCounter].incorrect_answers[2])
-
         answers.sort(func)
         setAnswers(answers)
-
         let correctAnswer = result.data.results[0].correct_answer
         console.log(correctAnswer)
         setCorrectAnswer(correctAnswer)
-
         let question
         question = result.data.results[qCounter].question
         // console.log(question)
         question = question.replace(/&amp;/g, "&").replace(/&#039;/g, "").replace(/&quot;/g, "''").replace(/&eacute;/g, "é")
         // console.log(question)
         setQuestion(question)
-
         socket.emit('sendData', question, answers, correctAnswer)
 
 
 
         setIsFetched(true)
     }
+
 
 
     useEffect(async () => {
@@ -144,16 +129,15 @@ export default function Game() {
         }
     }
 
+    
     let bodyCorrect = {
 
         "points": 10 * pointCounter
 
     }
-
     let bodyWrong = {
         "points": -20
     }
-
     const handleClick = async (e) => {
         e.preventDefault()
         const id = localStorage.getItem("userId")
@@ -170,9 +154,7 @@ export default function Game() {
             e.target.classList.add('bg-danger')
             setDisabled(true)
         }
-
     }
-
     socket.on('sent', (question, answers, correctAnswer) => {
         setQuestion(question)
         setAnswers(answers)

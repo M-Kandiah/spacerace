@@ -10,7 +10,7 @@ const Waiting = () => {
     const {room, lobby, setRoom} = useContext(UserContext)
 
     const history = useHistory()
-    const [user,setUser] = useState('')
+    const [users,setUsers] = useState([])
 
     
     socket.on("start", (room,url) => {
@@ -21,8 +21,9 @@ const Waiting = () => {
 
     const handleClick = (e) => {
         e.preventDefault()
-        console.log(room)
+        // console.log(room)
         socket.emit("start-game", room, "/game")
+        
     }
     
     const startButton = () => {
@@ -33,9 +34,10 @@ const Waiting = () => {
         }
     }
 
-    socket.on('joined-room', (roomId, user) => {
+    socket.on("joined-room", (roomId, user) => {
+        console.log(roomId)
         console.log(user)
-        setUser(user)
+        setUsers(user)
     })
 
     // when host starts game do a broadcast thing
@@ -48,7 +50,7 @@ const Waiting = () => {
             {/* <Container/> */}
             {/* start game button/waiting p */}
             {startButton()}
-            {user}
+            { users ? `${users} is waiting...` : ''}
         </div>
     )
 }
