@@ -10,25 +10,24 @@ const Waiting = () => {
     const {room, lobby, setRoom} = useContext(UserContext)
 
     const history = useHistory()
-    const [users,setUsers] = useState([])
+    const [users,setUsers] = useState('')
 
-    
-    socket.on("start", (room,url) => {
+
+    const handleClick = (e) => {
+        e.preventDefault()
+        console.log(room)
+        socket.emit("start-game", room, "/game")
+    }
+
+    socket.on('start', (room,url) => {
         console.log("hello")
         setRoom(room)
         history.push(url)
     })
-
-    const handleClick = (e) => {
-        e.preventDefault()
-        // console.log(room)
-        socket.emit("start-game", room, "/game")
-        
-    }
     
     const startButton = () => {
         if (lobby == 'host') {
-            return <button onClick={handleClick}>Start Game</button>
+            return <button onClick={handleClick}>Start Game</button> 
         } else {
             return <p>Waiting for host to start the game...</p>
         }
