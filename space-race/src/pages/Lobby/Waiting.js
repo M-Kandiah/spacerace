@@ -12,6 +12,13 @@ const Waiting = () => {
     const history = useHistory()
     const [users,setUsers] = useState('')
 
+    
+    socket.on("start", (room,url) => {
+        console.log("hello")
+        setRoom(room)
+        console.log(room.id)
+        history.push(url)
+    })
 
     const handleClick = (e) => {
         e.preventDefault()
@@ -19,12 +26,6 @@ const Waiting = () => {
         socket.emit("start-game", room, "/game")
     }
 
-    socket.on('start', (room,url) => {
-        console.log("hello")
-        setRoom(room)
-        history.push(url)
-    })
-    
     const startButton = () => {
         if (lobby == 'host') {
             return <button onClick={handleClick}>Start Game</button> 
@@ -43,7 +44,7 @@ const Waiting = () => {
     return (
         <div>
             <NavbarNm/>
-            {room.id}
+            {room.name}
             {/* header with room id & main menu button */}
             {/* container with player info */}
             {/* <Container/> */}

@@ -7,7 +7,7 @@ export default function Mainmenubtn() {
     }
     return (
         <div>
-            <button onClick={handleClick}>Main Menu</button>
+            <button type="button" onClick={handleClick}>Main Menu</button>
         </div>
     )
 }
