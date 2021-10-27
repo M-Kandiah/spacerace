@@ -5,6 +5,7 @@ import Leaderboard from '../../components/leaderboardbtn/Leaderboard'
 import NavbarMain from '../../components/NavBar/Navbar'
 
 export default function Mainmenu() {
+    
     return (
         <div>
             <NavbarMain/> 
