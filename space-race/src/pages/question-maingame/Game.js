@@ -22,7 +22,8 @@ export default function Game() {
         return 0.5 - Math.random();
     }
 
-
+    useEffect(() => 
+    setTimeout(() => setQCounter(1), 10000), [])
 
 
     function useInterval(callback, delay) {
