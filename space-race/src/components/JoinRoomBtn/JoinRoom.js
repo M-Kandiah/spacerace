@@ -14,7 +14,8 @@ export default function JoinRoom(props) {
         e.preventDefault();
         const socket = io('http://localhost:3001')
         const user = "MathusanKandiah"
-        socket.emit("join-room", e.target[0].value, user)
+        const room =  e.target[0].value
+        socket.emit("join-room",room, user)
         setLobby('waiting');
         history.push("/waitingroom")
     }
