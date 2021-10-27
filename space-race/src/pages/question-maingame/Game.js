@@ -55,13 +55,13 @@ export default function Game() {
 
         setQCounter(qCounter => qCounter + 1);
         let newAnswers = []
-        newAnswers.push(data.results[qCounter].correct_answer, data.results[qCounter].incorrect_answers[0], data.results[qCounter].incorrect_answers[1], data.results[qCounter].incorrect_answers[2])
+        newAnswers.push(data.results[qCounter].correct_answer.replace(/&amp;/g, "&").replace(/&#039;/g, "").replace(/&quot;/g, "''").replace(/&eacute;/g, "é"), data.results[qCounter].incorrect_answers[0].replace(/&amp;/g, "&").replace(/&#039;/g, "").replace(/&quot;/g, "''").replace(/&eacute;/g, "é"), data.results[qCounter].incorrect_answers[1].replace(/&amp;/g, "&").replace(/&#039;/g, "").replace(/&quot;/g, "''").replace(/&eacute;/g, "é"), data.results[qCounter].incorrect_answers[2].replace(/&amp;/g, "&").replace(/&#039;/g, "").replace(/&quot;/g, "''").replace(/&eacute;/g, "é"))
         newAnswers.sort(func)
         setAnswers(newAnswers)
 
 
 
-        let newCorrectAnswer = data.results[qCounter].correct_answer
+        let newCorrectAnswer = data.results[qCounter].correct_answer.replace(/&amp;/g, "&").replace(/&#039;/g, "").replace(/&quot;/g, "''").replace(/&eacute;/g, "é")
         setCorrectAnswer(newCorrectAnswer)
         console.log(newCorrectAnswer)
         let newQuestion = data.results[qCounter].question
@@ -87,10 +87,10 @@ export default function Game() {
         // console.log(data)
         // console.log(result)
         let answers = []
-        answers.push(result.data.results[qCounter].correct_answer, result.data.results[qCounter].incorrect_answers[0], result.data.results[qCounter].incorrect_answers[1], result.data.results[qCounter].incorrect_answers[2])
+        answers.push(result.data.results[qCounter].correct_answer.replace(/&amp;/g, "&").replace(/&#039;/g, "").replace(/&quot;/g, "''").replace(/&eacute;/g, "é"), result.data.results[qCounter].incorrect_answers[0].replace(/&amp;/g, "&").replace(/&#039;/g, "").replace(/&quot;/g, "''").replace(/&eacute;/g, "é"), result.data.results[qCounter].incorrect_answers[1].replace(/&amp;/g, "&").replace(/&#039;/g, "").replace(/&quot;/g, "''").replace(/&eacute;/g, "é"), result.data.results[qCounter].incorrect_answers[2].replace(/&amp;/g, "&").replace(/&#039;/g, "").replace(/&quot;/g, "''").replace(/&eacute;/g, "é"))
         answers.sort(func)
         setAnswers(answers)
-        let correctAnswer = result.data.results[0].correct_answer
+        let correctAnswer = result.data.results[0].correct_answer.replace(/&amp;/g, "&").replace(/&#039;/g, "").replace(/&quot;/g, "''").replace(/&eacute;/g, "é")
         console.log(correctAnswer)
         setCorrectAnswer(correctAnswer)
         let question
@@ -142,7 +142,7 @@ export default function Game() {
         e.preventDefault()
         const id = localStorage.getItem("userId")
         console.log(e)
-        if (e.target.textContent === correctAnswer) {
+        if (e.target.textContent.replace(/&amp;/g, "&").replace(/&#039;/g, "").replace(/&quot;/g, "''").replace(/&eacute;/g, "é") === correctAnswer) {
             e.target.classList.add('bg-success')
             console.log(localStorage.getItem('token'))
             await axios.patch(`https://quizappriamathusansam.herokuapp.com/users/${id}/points`, bodyCorrect, options) // hardcoded for user big boy sam, get user ID in auth context and put it in local storage and then use ${localStorage.getItem(userID)}
