@@ -52,7 +52,7 @@ export default function Game() {
             return history.push(`/main-menu`)
         }
 
-        setQCounter(qCounter + 1);
+        setQCounter(qCounter => qCounter + 1);
         let newAnswers = []
         newAnswers.push(data.results[qCounter].correct_answer, data.results[qCounter].incorrect_answers[0], data.results[qCounter].incorrect_answers[1], data.results[qCounter].incorrect_answers[2])
         newAnswers.sort(func)

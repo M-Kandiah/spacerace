@@ -7,31 +7,30 @@ import Rounds from '../../components/Lobby/Rounds';
 import { UserContext } from '../../contexts';
 import { category } from '../../categoryList'
 import NavbarNm from '../../components/NavBar/Navbar-nm';
-import { io } from 'socket.io-client'
 import { socket } from '../../App';
 
 const Quiz = () => {
     const history = useHistory()
 
-    const { room, setRoom, setLobby } = useContext(UserContext)
+    const { room, setRoom, setLobby, lobby } = useContext(UserContext)
     const handleSubmit = (e) => {
-        e.preventDefault()
-        // const socket = io('http://localhost:3001');
         setRoom({
-            id: socket.id,
-            category: category[e.target[2].selectedIndex].id,
-            difficulty: e.target[3].value,
-            rounds: e.target[4].value,
-            limit: e.target[5].value
+            name: e.target[2].value,
+            category: category[e.target[3].selectedIndex].id,
+            difficulty: e.target[4].value,
+            rounds: e.target[5].value,
+            limit: e.target[6].value
         });
         setLobby('host')
+        const user = localStorage.getItem('username')
+        socket.emit("join-room", e.target[2].value, user)
         history.push(`/waitingroom`)
     }
-// const url = `https://opentdb.com/api.php?amount=${amt}&category=${category}&difficulty=${difficulty}&type=multiple`;
 return (
     <div>
         <form onSubmit={handleSubmit}>
             <NavbarNm />
+            <input type="text" placeholder="room name"/>
             <Category />
             <Difficulty />
             <Rounds />

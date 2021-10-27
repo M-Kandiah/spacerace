@@ -12,7 +12,6 @@ export default function JoinRoom(props) {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        const socket = io('http://localhost:3001')
         const user = localStorage.getItem('username')
         const roomId =  e.target[0].value
         socket.emit("join-room",roomId, user)
