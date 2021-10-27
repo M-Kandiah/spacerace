@@ -50,6 +50,7 @@ export default function Game() {
         setQCounter(qCounter + 1);
         let newAnswers = []
         newAnswers.push(data.results[qCounter].correct_answer, data.results[qCounter].incorrect_answers[0], data.results[qCounter].incorrect_answers[1], data.results[qCounter].incorrect_answers[2])
+        newAnswers.sort(func)
         setAnswers(newAnswers)
 
         let newCorrectAnswer = data.results[qCounter].correct_answer
@@ -75,7 +76,6 @@ export default function Game() {
         // console.log(data)
         // console.log(result)
 
-    
         let answers = []
         answers.push(result.data.results[qCounter].correct_answer, result.data.results[qCounter].incorrect_answers[0], result.data.results[qCounter].incorrect_answers[1], result.data.results[qCounter].incorrect_answers[2])
 
