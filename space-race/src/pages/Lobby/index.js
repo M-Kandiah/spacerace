@@ -8,6 +8,7 @@ import { UserContext } from '../../contexts';
 import { category } from '../../categoryList'
 import NavbarNm from '../../components/NavBar/Navbar-nm';
 import {io} from 'socket.io-client'
+import { socket } from '../../App';
 
 const Quiz = () => {
     const history = useHistory()
@@ -15,7 +16,6 @@ const Quiz = () => {
     const {room, setRoom, setLobby} = useContext(UserContext)
     const handleSubmit = (e) => {
         e.preventDefault()
-        const socket = io('http://localhost:3001');
         socket.on('connect', () => {
             setRoom({
                 id: socket.id,
@@ -25,8 +25,9 @@ const Quiz = () => {
                 limit: e.target[5].value
             });
             setLobby('host')
-            history.push(`/waitingroom`)
+            
         })
+        history.push(`/waitingroom`)
     };
     // const url = `https://opentdb.com/api.php?amount=${amt}&category=${category}&difficulty=${difficulty}&type=multiple`;
     return (
