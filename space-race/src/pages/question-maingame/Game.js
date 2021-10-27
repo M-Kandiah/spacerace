@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useContext, useRef } from 'react'
+import {useHistory} from 'react-router-dom'
 import axios from 'axios'
 import NavbarNm from '../../components/NavBar/Navbar-nm';
 import CircleTimer from '../../components/Circletimer/CircleTimer';
@@ -10,6 +11,9 @@ import { socket } from '../../App';
 
 
 export default function Game() {
+
+    const history = useHistory()
+
     const { room } = useContext(UserContext)
     const [data, setData] = useState()
     const [answers, setAnswers] = useState()
@@ -23,7 +27,8 @@ export default function Game() {
         return 0.5 - Math.random();
     }
 
-
+    
+    
 
     function useInterval(callback, delay) {
         const savedCallback = useRef();
@@ -42,16 +47,25 @@ export default function Game() {
                 let id = setInterval(tick, delay);
                 return () => clearInterval(id);
             }
+            
         }, [delay]);
     }
 
     useInterval(() => {
         // Your custom logic here
+        
+        console.log(qCounter)
+        if (qCounter === data.results.length) {
+            return history.push(`/main-menu`)
+        }
+        
         setQCounter(qCounter + 1);
         let newAnswers = []
         newAnswers.push(data.results[qCounter].correct_answer, data.results[qCounter].incorrect_answers[0], data.results[qCounter].incorrect_answers[1], data.results[qCounter].incorrect_answers[2])
         newAnswers.sort(func)
         setAnswers(newAnswers)
+
+        
 
         let newCorrectAnswer = data.results[qCounter].correct_answer
         setCorrectAnswer(newCorrectAnswer)
@@ -67,6 +81,8 @@ export default function Game() {
             setCorrectAnswer(correctAnswer)
         })
     }, 10100);
+
+    
 
     async function boi() {
         // console.log(room)
