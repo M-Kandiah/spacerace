@@ -16,7 +16,7 @@ const Quiz = () => {
     const {room, setRoom, setLobby} = useContext(UserContext)
     const handleSubmit = (e) => {
         e.preventDefault()
-        const socket = io('http://localhost:3001');
+        // const socket = io('http://localhost:3001');
         socket.on('connect', () => {
             setRoom({
                 id: socket.id,
