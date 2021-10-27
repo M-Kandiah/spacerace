@@ -50,7 +50,7 @@ export default function Game() {
         // Your custom logic here
         console.log(qCounter)
         if (qCounter === data.results.length) {
-            return history.push(`/main-menu`)
+            return history.push(`/results`)
         }
 
         setQCounter(qCounter + 1);
