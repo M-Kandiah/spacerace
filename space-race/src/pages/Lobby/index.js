@@ -8,6 +8,7 @@ import { UserContext } from '../../contexts';
 import { category } from '../../categoryList'
 import NavbarNm from '../../components/NavBar/Navbar-nm';
 import {io} from 'socket.io-client'
+import { socket } from '../../App';
 
 const Quiz = () => {
     const history = useHistory()
