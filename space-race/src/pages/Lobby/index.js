@@ -25,9 +25,9 @@ const Quiz = () => {
                 limit: e.target[5].value
             });
             setLobby('host')
-            
+            history.push(`/waitingroom`)
         })
-        history.push(`/waitingroom`)
+        
     };
     // const url = `https://opentdb.com/api.php?amount=${amt}&category=${category}&difficulty=${difficulty}&type=multiple`;
     return (
