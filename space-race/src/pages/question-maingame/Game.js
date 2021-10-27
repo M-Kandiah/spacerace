@@ -72,7 +72,6 @@ export default function Game() {
         const result = await axios(`https://opentdb.com/api.php?amount=${parseInt(room.rounds) * 5}&category=${parseInt(room.category)}&difficulty=${room.difficulty}&type=multiple`);
         console.log(result.data)
         setData(result.data)
-<<<<<<< HEAD
         // console.log(data)
         // console.log(result)
 
@@ -99,33 +98,6 @@ export default function Game() {
        
 
         setIsFetched(true)
-=======
-        console.log(data)
-        console.log(result)
-        for(let i=0; i<result.data.results.length; i++) {
-            let answers = []
-            answers.push(result.data.results[i].correct_answer, result.data.results[i].incorrect_answers[0], result.data.result[i].incorrect_answers[1], result.data.results[i].incorrect_answers[2])
-            // console.log(answers)
-            answers.sort(func)
-            setAnswers(answers)
-    
-            let correctAnswer = result.data.results[i].correct_answer
-            console.log(correctAnswer)
-            setCorrectAnswer(correctAnswer)
-    
-            let question
-            question = result.data.results[i].question
-            // console.log(question)
-            question = question.replace(/&amp;/g, "&").replace(/&#039;/g, "").replace(/&quot;/g, "''").replace(/&eacute;/g, "é")
-            // console.log(question)
-            setQuestion(question)
-    
-            socket.emit('sendData', question,answers,correctAnswer)
-    
-            setIsFetched(true)
-
-        }
->>>>>>> 332df68f1557d93f26cedcacf14ff1ab3ea9ecec
     }
 
 
