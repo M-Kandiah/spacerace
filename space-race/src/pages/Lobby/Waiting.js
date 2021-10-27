@@ -16,12 +16,13 @@ const Waiting = () => {
     socket.on("start", (room,url) => {
         console.log("hello")
         setRoom(room)
+        console.log(room.id)
         history.push(url)
     })
 
     const handleClick = (e) => {
         e.preventDefault()
-        // console.log(room)
+        console.log(room)
         socket.emit("start-game", room, "/game")
         
     }
@@ -44,7 +45,7 @@ const Waiting = () => {
     return (
         <div>
             <NavbarNm/>
-            {room.id}
+            {room.name}
             {/* header with room id & main menu button */}
             {/* container with player info */}
             {/* <Container/> */}
