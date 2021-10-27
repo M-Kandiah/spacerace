@@ -60,8 +60,12 @@ export default function Game() {
         newQuestion = newQuestion.replace(/&amp;/g, "&").replace(/&#039;/g, "").replace(/&quot;/g, "''").replace(/&eacute;/g, "é")
         setQuestion(newQuestion)
 
-
-    }, 10000);
+        socket.on('sent', (question, answers, correctAnswer) => {
+            setQuestion(question)
+            setAnswers(answers)
+            setCorrectAnswer(correctAnswer)
+        })
+    }, 10100);
 
     async function boi() {
         // console.log(room)
@@ -149,12 +153,12 @@ export default function Game() {
             <NavbarNm />
             <p id='question'>{isFetched ? question : null}</p>
             <div className="d-flex flex-row flex-wrap">
-                <button id="answer1" onClick={handleClick} className="w-50">{isFetched ? answers[0] : null}</button>
-                <button id="answer2" onClick={handleClick} className="w-50">{isFetched ? answers[1] : null}</button>
-                <button id="answer3" onClick={handleClick} className="w-50">{isFetched ? answers[2] : null}</button>
-                <button id="answer4" onClick={handleClick} className="w-50">{isFetched ? answers[3] : null}</button>
+                <button key={qCounter +111} id="answer1" onClick={handleClick} className="w-50">{isFetched ? answers[0] : null}</button>
+                <button key={qCounter +222} id="answer2" onClick={handleClick} className="w-50">{isFetched ? answers[1] : null}</button>
+                <button key={qCounter +333} id="answer3" onClick={handleClick} className="w-50">{isFetched ? answers[2] : null}</button>
+                <button key={qCounter +444} id="answer4" onClick={handleClick} className="w-50">{isFetched ? answers[3] : null}</button>
             </div>
-            {isFetched ? <CircleTimer /> : null}
+            {isFetched ? <CircleTimer key={qCounter}/> : null}
         </>
     )
 }
