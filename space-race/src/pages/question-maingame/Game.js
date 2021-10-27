@@ -126,14 +126,14 @@ export default function Game() {
         boi()
     }, [])
 
-  
-        useInterval(() => {
-            setPointCounter(pointCounter - 1)
-            console.log(pointCounter)
+
+    useInterval(() => {
+        setPointCounter(pointCounter - 1)
+        console.log(pointCounter)
 
 
-        }, 1000)
-    
+    }, 1000)
+
 
 
     let options = {
