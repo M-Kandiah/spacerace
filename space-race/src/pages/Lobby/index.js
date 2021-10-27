@@ -16,6 +16,7 @@ const Quiz = () => {
     const {room, setRoom, setLobby} = useContext(UserContext)
     const handleSubmit = (e) => {
         e.preventDefault()
+        const socket = io('http://localhost:3001');
         socket.on('connect', () => {
             setRoom({
                 id: socket.id,
@@ -27,7 +28,6 @@ const Quiz = () => {
             setLobby('host')
             history.push(`/waitingroom`)
         })
-        
     };
     // const url = `https://opentdb.com/api.php?amount=${amt}&category=${category}&difficulty=${difficulty}&type=multiple`;
     return (
