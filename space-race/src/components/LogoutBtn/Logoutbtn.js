@@ -10,7 +10,7 @@ export default function Logoutbtn() {
     const username = localStorage.getItem("username")
     return (
         <div>
-            {username}
+            <div className="username">{username}</div>
             <button className="navbarBtn" onClick={handleClick}>Sign Out</button>
         </div>
     )

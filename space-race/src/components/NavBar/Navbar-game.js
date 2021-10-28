@@ -7,7 +7,7 @@ export default function NavbarGame() {
     return (
         <nav className="main-header">
             
-            <h1 className="">SPACE RACE</h1>
+            <h1 className="">BRAINIFY</h1>
            
         </nav>
     )

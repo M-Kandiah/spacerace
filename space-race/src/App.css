@@ -101,8 +101,9 @@ ul, ol {
 /* NAVBAR STUFF */
 
 .main-header-lr {
-  margin-left: 870px;
+  margin-left: 815px;
   margin-top: 300px;
+  text-align: center;
 }
 
 .navbarBtn {
@@ -153,6 +154,7 @@ ul, ol {
 .title {
   text-align: center;
   font-family: 'VT323';
+  font-size: 100px;
 }
 
 /* create game lobby */
@@ -174,6 +176,14 @@ select {
 
 .room-name {
   margin-top: 3rem;
+}
+
+.username-heading {
+  font-size: 70px;
+}
+
+.username {
+  font-size: 25px;
 }
 
 .user-container {

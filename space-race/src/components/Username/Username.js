@@ -4,7 +4,7 @@ const Username = () => {
     const username = localStorage.getItem("username")
     return (
         <div>
-            <h2 className="text-center">Hello {username}</h2>
+            <h2 className="text-center username-heading">Hello {username}</h2>
         </div>
     )
 }
