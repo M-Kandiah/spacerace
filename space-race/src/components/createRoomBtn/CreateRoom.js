@@ -19,7 +19,7 @@ export default function CreateRoom() {
                 delay={{ show: 250, hide: 400 }}
                 overlay={renderTooltip}
             >
-                <button className="mainMenuBtns" aria-label="create" onClick={handleClick}>CREATE ROOM</button>
+                <button className="mainMenuBtns top-button" aria-label="create" onClick={handleClick}>CREATE ROOM</button>
 
             </OverlayTrigger>
         </div>

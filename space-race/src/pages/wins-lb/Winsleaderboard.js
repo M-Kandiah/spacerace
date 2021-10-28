@@ -38,7 +38,8 @@ export class Winsleaderboard extends Component {
         return (
             <div>
                 <NavbarNm/>
-                <Table striped bordered condensed hover>
+                <div className="leaderboard">
+                <Table striped bordered condensed hover className="pleaderboard">
                     <thead>
                         <tr>
                             <th>#</th>
@@ -57,6 +58,7 @@ export class Winsleaderboard extends Component {
                     </tbody>
 
                 </Table>
+                </div>
             </div>
         )
     }

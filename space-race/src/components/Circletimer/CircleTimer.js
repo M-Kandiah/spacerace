@@ -6,11 +6,14 @@ export default function CircleTimer() {
         <div>
             <CountdownCircleTimer
     isPlaying
+    id ="timer"
+    size = "80"
+    strokeWidth ="8"
     duration={10}
     colors={[
-      ['#004777', 0.33],
-      ['#F7B801', 0.33],
-      ['#A30000', 0.33],
+      ['#2bc451', 0.33],
+      ['#bfba13', 0.33],
+      ['#ba0606', 0.33],
     ]}
   >
     {({ remainingTime }) => remainingTime}

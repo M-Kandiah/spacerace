@@ -114,7 +114,11 @@ div.main-header-lr > h1 {
   background-color: #a452f5;
   color:rgb(220, 233, 233);
   height: 30px;
-  
+  transition: 0.4s;
+}
+
+.navbarBtn:hover {
+  background-color:  #dd98e6 ;
 }
 
 #backButton {
@@ -124,6 +128,7 @@ div.main-header-lr > h1 {
   width: 90px;
   
 }
+
 
 
 
@@ -137,6 +142,10 @@ div.main-header-lr > h1 {
   
 }
 
+.signout {
+  margin-top: -100px;
+}
+
 .mainMenuBtns {
   padding: 1rem;
   border: 0.2px solid grey;
@@ -148,6 +157,10 @@ div.main-header-lr > h1 {
   box-shadow:0px 4px 4px 0px rgba(134, 132, 127,0.7)
 }
 
+.top-button {
+  margin-top: 0cm;
+}
+
 .mainMenuBtnd {
   width: 100%;
 }
@@ -155,6 +168,7 @@ div.main-header-lr > h1 {
 .title {
   text-align: center;
   font-family: 'VT323';
+  font-size: 125px;
   margin: auto;
 }
 
@@ -162,6 +176,7 @@ div.main-header-lr > h1 {
   margin-top: 150px;
   text-align: center;
   font-family: 'VT323';
+  font-size: 100px;
 }
 
 .user {
@@ -224,7 +239,7 @@ select {
 }
 
 .waiting {
-  border: 1px solid salmon;
+
   align-items: center;
 }
 
@@ -234,15 +249,31 @@ select {
 
 /* Main Game */
 
+.qandtimer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+ 
+}
+
+#timer {
+  justify-self: flex-end;
+}
+
+
 .answer {
   height: 80px;
   border-radius: 5px;
+  font-family: 'roboto', sans-serif;
+  
   
 }
 
 #question {
   text-align: center;
   margin-top: 3rem;
+  font-family: 'roboto', sans-serif;
+
 }
 
 .bg-wrong {
@@ -255,6 +286,39 @@ select {
 
 .timer {
   margin-top: 1.25rem;
+}
+
+/* leaderboards */
+.leaderboard {
+  margin-top: 5%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  
+}
+.pleaderboard {
+  width: 80%;
+  background-color: #dd98e6;
+  border-radius: 10px;
+  box-shadow:0px 4px 4px 0px rgba(134, 132, 127,0.7) ;
+  border: transparent;
+  font-family: 'roboto', sans-serif;
+  
+}
+
+.showResults {
+  width: 300px;
+  font-size: 30px;
+  background-color: #8d48d1;
+  border: transparent;
+  box-shadow:0px 4px 4px 0px rgba(134, 132, 127,0.7) ;
+  transition: 0.2s;
+}
+
+.showResults:hover{
+  transform: translateY(5px);
+  box-shadow:none;
 }
 
 
