@@ -41,17 +41,12 @@
   }
 }
 
-.main-header { 
+.main-header, .main-header-lr  { 
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.main-header-lr {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 
 /* LOGIN FORM  */
 
@@ -96,4 +91,53 @@ ul, ol {
 .enabled:hover {
     box-shadow: none;
     transform: translateY(2px)
+}
+
+/* NAVBAR STUFF */
+
+
+.navbarBtn {
+  padding: 1rem;
+  border: 0.2px solid grey;
+  border-radius: 5px;
+  margin: 0.5rem;
+  background-color: #a452f5;
+  color:rgb(220, 233, 233);
+}
+
+#backButton {
+  color: transparent;
+  background-color: transparent;
+  border: transparent;
+  width: 67px;
+}
+
+
+/* main menu */
+.mainMenuBtnHolder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 5%;
+  width: 100%;
+  
+}
+
+.mainMenuBtns {
+  padding: 1rem;
+  border: 0.2px solid grey;
+  border-radius: 5px;
+  font-family: monospace;
+  width: 400px;
+  margin: 0.5rem;
+}
+
+.mainMenuBtnd {
+  width: 100%;
+}
+
+/* create game lobby */
+
+select { 
+  width: 200px
 }

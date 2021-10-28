@@ -1,5 +1,5 @@
 import React from 'react'
-
+import '../../App.css';
 export default function Logoutbtn() {
     const handleClick = async () => {
         localStorage.clear()
@@ -9,7 +9,7 @@ export default function Logoutbtn() {
     } 
     return (
         <div>
-            <button onClick={handleClick}>Sign Out</button>
+            <button className="navbarBtn" onClick={handleClick}>Sign Out</button>
         </div>
     )
 }

@@ -1,4 +1,5 @@
 import React from 'react'
+import '../../App.css';
 
 export default function Leaderboard() {
     const handleClick = (e) => {
@@ -6,8 +7,8 @@ export default function Leaderboard() {
         window.location.href= '/leaderboard'
     }
     return (
-        <div>
-            <button onClick={handleClick}>LEADERBOARDS</button>
+        <div >
+            <button className="mainMenuBtns" onClick={handleClick}>LEADERBOARDS</button>
         </div>
     )
 }

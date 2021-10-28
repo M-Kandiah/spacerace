@@ -1,5 +1,6 @@
 import React, {useContext} from 'react'
 import { UserContext } from '../../contexts'
+import '../../App.css';
 
 const Container = () => {
     // get number of players here then map them to a list

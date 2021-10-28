@@ -1,12 +1,16 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, useContext} from 'react'
 import {Button, Table} from 'react-bootstrap'
 import NavbarNm from '../../components/NavBar/Navbar-nm'
+import { UserContext } from '../../contexts'
 
 export default function EndgameLb() {
     const [leaderboard, setLeaderboard] = useState(false)
     
+    const {users} = useContext(UserContext)
+    
     const handleClick = () => {
         setLeaderboard(true)
+        console.log(users)
 
     }
 

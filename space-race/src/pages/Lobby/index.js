@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import Category from '../../components/Lobby/Category';
 import Difficulty from '../../components/Lobby/Difficulty';
@@ -11,31 +11,50 @@ import { socket } from '../../App';
 
 const Quiz = () => {
     const history = useHistory()
+    const [roomSet, setRoomSet] = useState(true)
+
+    const handleChange = (e) => {
+        e.preventDefault()
+        if(roomSet === true) {
+            setRoomSet(false)
+        } if(e.target.value === "") {
+            setRoomSet(true)
+        }
+    }
 
     const { room, setRoom, setLobby, lobby } = useContext(UserContext)
     const handleSubmit = (e) => {
         setRoom({
-            name: e.target[2].value,
-            category: category[e.target[3].selectedIndex].id,
-            difficulty: e.target[4].value,
-            rounds: e.target[5].value,
-            limit: e.target[6].value
+            name: e.target[0].value,
+            category: category[e.target[1].selectedIndex].id,
+            difficulty: e.target[2].value,
+            rounds: e.target[3].value,
+           
         });
         setLobby('host')
         const user = localStorage.getItem('username')
-        socket.emit("join-room", e.target[2].value, user)
+        socket.emit("join-room", e.target[0].value, user)
         history.push(`/waitingroom`)
     }
+
+   
 return (
     <div>
+        <NavbarNm />
         <form onSubmit={handleSubmit}>
-            <NavbarNm />
-            <input type="text" placeholder="room name"/>
+            
+            <input type="text" placeholder="Enter room name" onChange={handleChange}/>
+            <label> Select Category
             <Category />
+            </label>
+            <label> Select Difficulty
             <Difficulty />
+            </label>
+            <label> How Many Rounds ?
             <Rounds />
-            <Limit />
-            <input type="submit" value="Create"></input>
+            </label>
+            
+            <input type="submit" value="Create" disabled={roomSet}></input>
         </form>
     </div>
 )
