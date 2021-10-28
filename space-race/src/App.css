@@ -220,13 +220,15 @@ select {
   margin-top: 1.25rem;
 }
 
+
+
 @media only screen  and (max-width: 450px) {
   .mainMenuBtns {
     width: 300px;
   }
   .modal {
     width: 300px;
-    
+    margin-left: 38px;
 
   }
 

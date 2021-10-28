@@ -42,19 +42,17 @@ export default function JoinRoom(props) {
                 centered
                 show={modalShow}
                 onHide={() => setModalShow(false)}
-                className="modal ms-5"
+                className="modal"
             >
                 <Modal.Header closeButton>
-                    <Modal.Title id="contained-modal-title-vcenter">
+                    <Modal.Title id="contained-modal-title-vcenter" className="text-center">
                         Join Room
                     </Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                     <form onSubmit={handleSubmit}>
-                        <input type="text" placeholder="Enter Room Code" />
-
-                        <input type="submit" />
-
+                    <input type="text" placeholder="Enter Room Code" className="w-75"/>
+                    <input type="submit"/>
                     </form>
                 </Modal.Body>
 
