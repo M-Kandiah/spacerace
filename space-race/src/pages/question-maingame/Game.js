@@ -201,10 +201,10 @@ export default function Game() {
             {isFetched ? <CircleTimer key={qCounter} id="timer" /> : null} <h3 id='question'>{isFetched ? question : null}</h3> 
             </div>
             <div className="d-flex flex-row flex-wrap w-75">
-                <button key={qCounter + 111} id="answer1" onClick={handleClick} className="w-100 answer m-2" disabled={disabled}>{isFetched ? answers[0] : null}</button>
-                <button key={qCounter + 222} id="answer2" onClick={handleClick} className="w-100 answer m-2" disabled={disabled}>{isFetched ? answers[1] : null}</button>
-                <button key={qCounter + 333} id="answer3" onClick={handleClick} className="w-100 answer m-2" disabled={disabled}>{isFetched ? answers[2] : null}</button>
-                <button key={qCounter + 444} id="answer4" onClick={handleClick} className="w-100 answer m-2" disabled={disabled}>{isFetched ? answers[3] : null}</button>
+                <button key={qCounter + 111} id="answer1" onClick={handleClick} className="w-100 answer m-2 answer" disabled={disabled}>{isFetched ? answers[0] : null}</button>
+                <button key={qCounter + 222} id="answer2" onClick={handleClick} className="w-100 answer m-2 answer" disabled={disabled}>{isFetched ? answers[1] : null}</button>
+                <button key={qCounter + 333} id="answer3" onClick={handleClick} className="w-100 answer m-2 answer" disabled={disabled}>{isFetched ? answers[2] : null}</button>
+                <button key={qCounter + 444} id="answer4" onClick={handleClick} className="w-100 answer m-2 answer" disabled={disabled}>{isFetched ? answers[3] : null}</button>
             </div>
            
             </div>

@@ -256,12 +256,16 @@ select {
 .answer {
   height: 80px;
   border-radius: 5px;
+  font-family: 'roboto', sans-serif;
+  
   
 }
 
 #question {
   text-align: center;
   margin-top: 3rem;
+  font-family: 'roboto', sans-serif;
+  
 }
 
 .bg-wrong {
