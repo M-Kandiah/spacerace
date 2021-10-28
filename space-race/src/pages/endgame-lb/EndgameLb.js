@@ -100,7 +100,7 @@ export default function EndgameLb() {
 
     }, [])
 
-
+    console.log("netlify why")
 
 
     return (
