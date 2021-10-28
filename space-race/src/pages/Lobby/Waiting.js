@@ -42,7 +42,7 @@ const Waiting = () => {
 
     // when host starts game do a broadcast thing
     return (
-        <div>
+        <div>gi
             <NavbarNm/>
             {room.name}
             {/* header with room id & main menu button */}
