@@ -28,7 +28,7 @@ export default function JoinRoom(props) {
             <div className="d-flex justify-content-center">
             <Modal
                 {...props}
-                size="sm"
+                size="lg"
                 aria-labelledby="contained-modal-title-vcenter"
                 centered
                 show={modalShow}
