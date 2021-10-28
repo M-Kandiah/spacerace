@@ -46,11 +46,12 @@ function App() {
     limit: '',
     difficulty: ''
   });
+  const [users,setUsers] = useState([])
   const [lobby, setLobby] = useState('')
   const [players, setPlayers] = useState([])
   return (
     <>
-    <UserContext.Provider value={{room, setRoom, lobby, setLobby, players, setPlayers}}>
+    <UserContext.Provider value={{room, setRoom, lobby, setLobby, users, setUsers}}>
       <AuthProvider>
         <Router>
           <Switch>

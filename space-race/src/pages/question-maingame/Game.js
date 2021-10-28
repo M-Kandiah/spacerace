@@ -52,7 +52,6 @@ export default function Game() {
         if (qCounter === data.results.length) {
             return history.push(`/results`)
         }
-
         setQCounter(qCounter => qCounter + 1);
         let newAnswers = []
         newAnswers.push(data.results[qCounter].correct_answer.replace(/&amp;/g, "&").replace(/&#039;/g, "").replace(/&quot;/g, "''").replace(/&eacute;/g, "é"), data.results[qCounter].incorrect_answers[0].replace(/&amp;/g, "&").replace(/&#039;/g, "").replace(/&quot;/g, "''").replace(/&eacute;/g, "é"), data.results[qCounter].incorrect_answers[1].replace(/&amp;/g, "&").replace(/&#039;/g, "").replace(/&quot;/g, "''").replace(/&eacute;/g, "é"), data.results[qCounter].incorrect_answers[2].replace(/&amp;/g, "&").replace(/&#039;/g, "").replace(/&quot;/g, "''").replace(/&eacute;/g, "é"))
@@ -67,11 +66,6 @@ export default function Game() {
         let newQuestion = data.results[qCounter].question
         newQuestion = newQuestion.replace(/&amp;/g, "&").replace(/&#039;/g, "").replace(/&quot;/g, "''").replace(/&eacute;/g, "é")
         setQuestion(newQuestion)
-        socket.on('sent', (question, answers, correctAnswer) => {
-            setQuestion(question)
-            setAnswers(answers)
-            setCorrectAnswer(correctAnswer)
-        })
         setPointCounter(10)
         setDisabled(false)
     }, 10100);
