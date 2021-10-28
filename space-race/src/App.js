@@ -66,6 +66,9 @@ function App() {
             <Route path="/" exact>
               <Redirect to="/main-menu" />
             </Route>
+            <Route path="/home" exact>
+              <Redirect to="/main-menu" />
+            </Route>
             <PrivateRoute path="/main-menu" exact>
             <Mainmenu/>
             </PrivateRoute>

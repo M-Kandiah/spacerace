@@ -1,5 +1,5 @@
 import React from 'react'
-
+import '../../App.css';
 
 export default function CreateRoom() {
     const handleClick = (e) => {
@@ -8,7 +8,7 @@ export default function CreateRoom() {
     }
     return (
         <div>
-            <button onClick={handleClick}>CREATE ROOM</button>
+            <button className="mainMenuBtns" onClick={handleClick}>CREATE ROOM</button>
         </div>
     )
 }

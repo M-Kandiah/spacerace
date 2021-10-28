@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useAuthContext } from "../contexts/auth";
 import { useHistory } from "react-router-dom";
+import '../../App.css';
 
 
 const Login = () => {
@@ -39,12 +40,12 @@ const Login = () => {
 
     return (
         <>
-        <form onSubmit={handleSubmit} aria-label="login">
-            <input type="username" name="username" value={formData.username} onChange={handleInput} placeholder="Username" />
-            <input type="password" name="password" value={formData.password} onChange={handleInput} placeholder="Password" />
+        <form onSubmit={handleSubmit} aria-label="login" className="d-flex flex-column login-form">
+            <input type="username" name="username" value={formData.username} onChange={handleInput} placeholder="Username" className="m-1 username" />
+            <input type="password" name="password" value={formData.password} onChange={handleInput} placeholder="Password" className="m-1 password" />
             { error && <div id="error">Wrong Username or Password</div> }
-            <input type="submit" className={formIncomplete() ? 'disabled' : 'enabled'} disabled={formIncomplete()} value="Login" />
-            <button onClick={handleClick}>Register instead</button>
+            <input id="submit" type="submit" className={formIncomplete() ? 'disabled' : 'enabled'} disabled={formIncomplete()} value="Create Account" />
+            <button onClick={handleClick} className="m-1 register-in" >Register instead</button>
         </form>
        
         

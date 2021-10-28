@@ -1,5 +1,5 @@
 import React from 'react'
-
+import '../../App.css';
 export default function Mainmenubtn() {
     const handleClick = (e) => {
         e.preventDefault();
@@ -7,7 +7,7 @@ export default function Mainmenubtn() {
     }
     return (
         <div>
-            <button type="button" onClick={handleClick}>Main Menu</button>
+            <button className="navbarBtn" type="button" onClick={handleClick}>Main Menu</button>
         </div>
     )
 }

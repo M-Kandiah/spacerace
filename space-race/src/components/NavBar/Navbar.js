@@ -1,13 +1,16 @@
 import React from 'react'
 import Logoutbtn from '../LogoutBtn/Logoutbtn'
 
+import '../../App.css';
+import BackButton from '../BackButton/BackButton';
+
 
 export default function NavbarMain() {
     return (
-        <div className="main-header">
-            <h1></h1>
-            <h1>SPACE RACE</h1>
+        <nav className="main-header">
+            <button value="back" id="backButton">Back</button>
+            <h1 >SPACE RACE</h1>
             <Logoutbtn />
-        </div>
+        </nav>
     )
 }

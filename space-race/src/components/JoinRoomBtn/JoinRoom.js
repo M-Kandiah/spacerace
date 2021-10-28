@@ -4,6 +4,7 @@ import { Modal, Button } from 'react-bootstrap'
 import {UserContext} from '../../contexts'
 import { socket } from '../../App'
 import {io} from 'socket.io-client'
+import '../../App.css';
 
 export default function JoinRoom(props) {
     const history = useHistory()
@@ -21,9 +22,9 @@ export default function JoinRoom(props) {
 
     return (
         <div>
-            <Button variant="primary" onClick={() => setModalShow(true)}>
+            <button className="mainMenuBtns" variant="primary" onClick={() => setModalShow(true)}>
                 JOIN ROOM
-            </Button>
+            </button>
             <Modal
                 {...props}
                 size="lg"
