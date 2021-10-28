@@ -41,7 +41,7 @@ const Quiz = () => {
 return (
     <div>
         <NavbarNm />
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className="create">
             
             <input type="text" placeholder="Enter room name" onChange={handleChange}/>
             <label> Select Category
@@ -54,7 +54,7 @@ return (
             <Rounds />
             </label>
             
-            <input type="submit" value="Create" disabled={roomSet}></input>
+            <input type="submit" value="Create" disabled={roomSet} className="submit-form"></input>
         </form>
     </div>
 )
