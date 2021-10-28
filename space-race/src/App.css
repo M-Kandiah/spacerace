@@ -145,6 +145,11 @@ ul, ol {
   width: 100%;
 }
 
+.title {
+  text-align: center;
+  font-family: 'VT323';
+}
+
 /* create game lobby */
 
 select { 
