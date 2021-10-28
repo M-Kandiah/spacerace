@@ -19,15 +19,15 @@ export default function JoinRoom(props) {
         setLobby('waiting');
         history.push("/waitingroom")
     }
-    
+
 
     return (
         <div>
-            
-                <button className="mainMenuBtns" aria-label="join" variant="primary" onClick={() => setModalShow(true)}>
-                    JOIN ROOM
-                </button>
-            
+
+            <button className="mainMenuBtns" aria-label="join" variant="primary" onClick={() => setModalShow(true)}>
+                JOIN ROOM
+            </button>
+
             <Modal
                 {...props}
                 size="lg"
@@ -44,13 +44,13 @@ export default function JoinRoom(props) {
                 </Modal.Header>
                 <Modal.Body>
                     <form onSubmit={handleSubmit}>
-                    <input type="text" placeholder="Enter Room Code" className="w-75"/>
-                    <input type="submit"/>
+                        <input type="text" placeholder="Enter Room Code" className="w-75" />
+                        <input type="submit" />
                     </form>
                 </Modal.Body>
 
             </Modal>
-            </div>
-        
+        </div>
+
     )
 }
