@@ -20,7 +20,6 @@ const Waiting = () => {
         e.preventDefault()
         console.log(users)
         socket.emit("start-game", room, "/game")
-        
     }
     
     const startButton = () => {
