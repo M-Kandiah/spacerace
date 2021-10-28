@@ -265,7 +265,7 @@ select {
   text-align: center;
   margin-top: 3rem;
   font-family: 'roboto', sans-serif;
-  
+
 }
 
 .bg-wrong {
@@ -297,6 +297,20 @@ select {
   border: transparent;
   font-family: 'roboto', sans-serif;
   
+}
+
+.showResults {
+  width: 300px;
+  font-size: 30px;
+  background-color: #8d48d1;
+  border: transparent;
+  box-shadow:0px 4px 4px 0px rgba(134, 132, 127,0.7) ;
+  transition: 0.2s;
+}
+
+.showResults:hover{
+  transform: translateY(5px);
+  box-shadow:none;
 }
 
 

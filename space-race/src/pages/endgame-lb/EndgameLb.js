@@ -107,9 +107,11 @@ export default function EndgameLb() {
         <div>
             <NavbarNm/>
             <div className="d-flex justify-content-center mt-5 ">
-            <Button hidden={leaderboard} onClick={handleClick}>SHOW RESULTS</Button>
+            <Button hidden={leaderboard} onClick={handleClick} className="showResults">SHOW RESULTS</Button>
             </div>
-            <div className="leaderboard"> 
+            <div className="leaderboard d-flex flex-column"> 
+            
+            <h1>CONGRATS {players[0].username} YOU WON!! </h1>
             <Table striped bordered condensed hover hidden={!leaderboard} className="pleaderboard">
                 <thead>
                     <tr>
@@ -128,6 +130,7 @@ export default function EndgameLb() {
                     )): null}
                 </tbody>
             </Table>
+             
             </div>
         </div>
     )
