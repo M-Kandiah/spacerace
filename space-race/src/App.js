@@ -30,6 +30,7 @@ import Waiting from './pages/Lobby/Waiting';
 import Winsleaderboard from './pages/wins-lb/Winsleaderboard';
 import NavbarNm from './components/NavBar/Navbar-nm';
 import Game from './pages/question-maingame/Game';
+import EndgameLb from './pages/endgame-lb/EndgameLb';
 
 
 export const socket = io("http://localhost:3001",{ transports: ['polling'] });
@@ -79,6 +80,9 @@ function App() {
             </PrivateRoute>
             <PrivateRoute path="/game">
               <Game/>
+            </PrivateRoute>
+            <PrivateRoute path="/results">
+              <EndgameLb />
             </PrivateRoute>
           </Switch>
         </Router>
