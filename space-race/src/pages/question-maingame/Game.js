@@ -24,7 +24,22 @@ export default function Game() {
     }
 
     useEffect(() =>
-        setTimeout(() => setQCounter(1), 10000), [])
+        setTimeout(() => {setQCounter(1)
+            if (disabled === false) {
+                const id = localStorage.getItem("userId")
+               
+                let options = {
+                    headers: {
+                        'Content-Type': 'application/json',
+                        "authorization": localStorage.getItem('token')
+                    }
+                }
+            
+                let bodyWrong = {
+                    "points": -20
+                }
+                axios.patch(`https://quizappriamathusansam.herokuapp.com/users/${id}/points`, bodyWrong, options)
+            }}, 10000), [])
 
 
     function useInterval(callback, delay) {
@@ -73,6 +88,21 @@ export default function Game() {
             setAnswers(answers)
             setCorrectAnswer(correctAnswer)
         })
+        if (disabled === false) {
+            const id = localStorage.getItem("userId")
+           
+            let options = {
+                headers: {
+                    'Content-Type': 'application/json',
+                    "authorization": localStorage.getItem('token')
+                }
+            }
+        
+            let bodyWrong = {
+                "points": -20
+            }
+            axios.patch(`https://quizappriamathusansam.herokuapp.com/users/${id}/points`, bodyWrong, options)
+        }
         setPointCounter(10)
         setDisabled(false)
     }, 10100);

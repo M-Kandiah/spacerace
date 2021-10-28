@@ -33,7 +33,7 @@ import Game from './pages/question-maingame/Game';
 import EndgameLb from './pages/endgame-lb/EndgameLb';
 
 
-export const socket = io("http://localhost:3001",{ transports: ['polling'] });
+export const socket = io("https://quizappriamathusansam.herokuapp.com",{ transports: ['polling'] });
 socket.on('connect', () => {
   console.log(`You are connected with ${socket.id}`)
 })
