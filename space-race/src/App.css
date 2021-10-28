@@ -137,6 +137,10 @@ div.main-header-lr > h1 {
   
 }
 
+.signout {
+  margin-top: -100px;
+}
+
 .mainMenuBtns {
   padding: 1rem;
   border: 0.2px solid grey;
