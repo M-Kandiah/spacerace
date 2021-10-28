@@ -107,6 +107,7 @@ ul, ol {
   margin: 0.5rem;
   background-color: #a452f5;
   color:rgb(220, 233, 233);
+  
 }
 
 #backButton {
@@ -114,11 +115,10 @@ ul, ol {
   background-color: transparent;
   border: transparent;
   width: 90px;
+  
 }
 
-#back {
-  width: 90px
-}
+
 
 /* main menu */
 .mainMenuBtnHolder {
@@ -137,6 +137,8 @@ ul, ol {
   font-family: monospace;
   width: 400px;
   margin: 0.5rem;
+  margin-top: 20%;
+  box-shadow:0px 4px 4px 0px rgba(134, 132, 127,0.7)
 }
 
 .mainMenuBtnd {
@@ -216,4 +218,16 @@ select {
 
 .timer {
   margin-top: 1.25rem;
+}
+
+@media only screen  and (max-width: 450px) {
+  .mainMenuBtns {
+    width: 300px;
+  }
+  .modal {
+    width: 300px;
+    
+
+  }
+
 }

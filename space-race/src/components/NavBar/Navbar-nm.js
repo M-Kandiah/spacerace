@@ -7,7 +7,7 @@ export default function NavbarNm() {
     return (
         <nav className="main-header">
             <BackButton/>
-            <h1>Brainify</h1>
+        
             <Mainmenubtn/>
         </nav>
     )

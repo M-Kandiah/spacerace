@@ -1,6 +1,5 @@
 import React from 'react'
 import Logoutbtn from '../LogoutBtn/Logoutbtn'
-
 import '../../App.css';
 import BackButton from '../BackButton/BackButton';
 
