@@ -6,7 +6,7 @@ import NavbarNm from '../../components/NavBar/Navbar-nm';
 
 const Waiting = () => {
     const {room, lobby, setRoom, users, setUsers} = useContext(UserContext)
-
+    const [name, setName] = useState('')
     const history = useHistory()
     
     socket.on("start", (room,url) => {
@@ -36,13 +36,15 @@ const Waiting = () => {
 
     socket.on("joined-room", (roomId, user) => {
             console.log(user)
+            setName(roomId)
+            
     })
 
     // when host starts game do a broadcast thing
     return (
         <div>
             <NavbarNm/>
-            {room.name}
+            {name}
             {/* header with room id & main menu button */}
             {/* container with player info */}
             {users.map(user => <p>{user}</p>)}

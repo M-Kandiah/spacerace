@@ -22,7 +22,7 @@ export default function JoinRoom(props) {
 
     return (
         <div>
-            <button className="mainMenuBtns" variant="primary" onClick={() => setModalShow(true)}>
+            <button className="mainMenuBtns" aria-label="join" variant="primary" onClick={() => setModalShow(true)}>
                 JOIN ROOM
             </button>
             <Modal

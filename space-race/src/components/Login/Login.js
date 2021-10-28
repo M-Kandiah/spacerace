@@ -45,7 +45,7 @@ const Login = () => {
             <input type="password" aria-label="password" name="password" value={formData.password} onChange={handleInput} placeholder="Password" className="m-1 password" />
             { error && <div id="error">Wrong Username or Password</div> }
             <input id="submit" type="submit" className={formIncomplete() ? 'disabled' : 'enabled'} disabled={formIncomplete()} value="Login" />
-            <button onClick={handleClick} className="m-1 register-in" >Register instead</button>
+            <button onClick={handleClick} aria-label="register" className="m-1 register-in" >Register instead</button>
         </form>
        
         
