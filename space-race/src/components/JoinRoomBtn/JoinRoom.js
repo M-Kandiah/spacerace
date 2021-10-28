@@ -19,22 +19,15 @@ export default function JoinRoom(props) {
         setLobby('waiting');
         history.push("/waitingroom")
     }
-    const renderTooltip = (props) => {
-        <Tooltip id="button-tooltip" {...props}>
-            Join a room with your friends!
-        </Tooltip>
-};
+    
 
     return (
         <div>
-            <OverlayTrigger placement="right"
-                delay={{ show: 250, hide: 400 }}
-                overlay={renderTooltip}
-            >
+            
                 <button className="mainMenuBtns" aria-label="join" variant="primary" onClick={() => setModalShow(true)}>
                     JOIN ROOM
                 </button>
-            </OverlayTrigger>
+            
             <Modal
                 {...props}
                 size="lg"
