@@ -1,6 +1,10 @@
 
 * {
   font-family: 'Roboto', sans-serif;
+  
+}
+body{
+  background-color: salmon;
 }
 .App {
   text-align: center;
@@ -109,9 +113,12 @@ ul, ol {
   color: transparent;
   background-color: transparent;
   border: transparent;
-  width: 67px;
+  width: 90px;
 }
 
+#back {
+  width: 90px
+}
 
 /* main menu */
 .mainMenuBtnHolder {
@@ -140,4 +147,68 @@ ul, ol {
 
 select { 
   width: 200px
+}
+
+/* Waiting Room  */
+
+.waiting-button {
+  padding: 1rem;
+  border: 0.2px solid grey;
+  border-radius: 5px;
+  margin: 0.5rem;
+  background-color: #a452f5;
+  color:rgb(220, 233, 233);
+}
+
+.room-name {
+  margin-top: 3rem;
+}
+
+.user-container {
+  border: 1px solid black;
+  border-radius: 5px;
+  padding:0.5rem;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  height: 250px;
+  margin-top: 2rem;
+  background-color: rgb(247, 247, 247);
+  box-shadow:0px 4px 4px 0px rgba(134, 132, 127,0.7) ;
+}
+
+.waiting {
+  border: 1px solid salmon;
+  align-items: center;
+}
+
+.waiting-message {
+  margin-top: 10px;
+}
+
+/* Main Game */
+
+.answer {
+  height: 80px;
+  border-radius: 5px;
+  
+}
+
+#question {
+  text-align: center;
+  margin-top: 3rem;
+}
+
+.bg-wrong {
+  background-color: rgb(245, 56, 23);
+}
+
+.bg-correct {
+  background-color: rgb(50, 180, 46);
+}
+
+.timer {
+  margin-top: 2.5rem;
 }
