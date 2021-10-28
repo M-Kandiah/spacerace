@@ -215,7 +215,7 @@ select {
 }
 
 .waiting {
-  border: 1px solid salmon;
+
   align-items: center;
 }
 
@@ -246,6 +246,24 @@ select {
 
 .timer {
   margin-top: 1.25rem;
+}
+
+/* leaderboards */
+.leaderboard {
+ 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  
+}
+.pleaderboard {
+  width: 80%;
+  background-color: #a452f5;
+  border-radius: 10px;
+  box-shadow:0px 4px 4px 0px rgba(134, 132, 127,0.7) ;
+  border: transparent;
+  
 }
 
 
