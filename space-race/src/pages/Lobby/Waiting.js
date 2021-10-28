@@ -1,4 +1,4 @@
-import React, {useContext, useState} from 'react'
+import React, {useContext, useState, useEffect} from 'react'
 import {UserContext} from '../../contexts';
 import {useHistory} from 'react-router-dom'
 import { socket } from '../../App';
@@ -13,7 +13,7 @@ const Waiting = () => {
     socket.on("start", (room,url) => {
         console.log("hello")
         setRoom(room)
-        console.log(room.id)
+        // console.log(room.id)
         history.push(url)
         console.log(room.name)
     })
@@ -23,7 +23,7 @@ const Waiting = () => {
         console.log(users)
         socket.emit("start-game", room, "/game")
     }
-    
+
     const startButton = () => {
         if (lobby == 'host') {
             return <button className="waiting-button" onClick={handleClick}>Start Game</button>
@@ -42,9 +42,11 @@ const Waiting = () => {
             
     })
 
+    
+
     // when host starts game do a broadcast thing
     return (
-        <div>
+        <div>gi
             <NavbarNm/>
             
             <div className="d-flex flex-column justify-content-center waiting">
