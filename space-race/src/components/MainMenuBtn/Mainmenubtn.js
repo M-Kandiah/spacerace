@@ -6,6 +6,7 @@ import {UserContext} from '../../contexts'
 
 export default function Mainmenubtn() {
     const {room} = useContext(UserContext)
+    const username = localStorage.getItem("username")
 
     const handleClick = (e) => {
         e.preventDefault();
@@ -14,6 +15,7 @@ export default function Mainmenubtn() {
     }
     return (
         <div>
+            {username}
             <button className="navbarBtn" type="button" onClick={handleClick}><BiHomeAlt size="24"/></button>
         </div>
     )
