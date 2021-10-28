@@ -8,7 +8,7 @@ export default function CreateRoom() {
     }
     return (
         <div>
-            <button className="mainMenuBtns" onClick={handleClick}>CREATE ROOM</button>
+            <button className="mainMenuBtns" aria-label="create" onClick={handleClick}>CREATE ROOM</button>
         </div>
     )
 }
