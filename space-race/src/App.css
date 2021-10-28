@@ -4,7 +4,7 @@
   
 } */
 body{
-  background-color: salmon;
+  background-color: white;
   font-family: 'VT323';
 }
 .App {
@@ -107,12 +107,13 @@ div.main-header-lr > h1 {
 }
 
 .navbarBtn {
-  padding: 1rem;
+  padding: auto;
   border: 0.2px solid grey;
   border-radius: 5px;
   margin: 0.5rem;
   background-color: #a452f5;
   color:rgb(220, 233, 233);
+  height: 30px;
   
 }
 

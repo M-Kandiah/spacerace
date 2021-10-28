@@ -7,10 +7,8 @@ export default function Logoutbtn() {
             window.location.reload()
         },10)
     } 
-    const username = localStorage.getItem("username")
     return (
         <div>
-            <div className="username">{username}</div>
             <button className="navbarBtn" onClick={handleClick}>Sign Out</button>
         </div>
     )

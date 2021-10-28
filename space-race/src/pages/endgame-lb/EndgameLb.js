@@ -107,7 +107,7 @@ export default function EndgameLb() {
         <div>
             <NavbarNm/>
             <Button hidden={leaderboard} onClick={handleClick}>SHOW RESULTS</Button>
-            <Table hidden={!leaderboard}>
+            <Table hidden={!leaderboard} responsive>
                 <thead>
                     <tr>
                         <th>#</th>
