@@ -7,7 +7,7 @@ import '../../App.css';
 
 const Waiting = () => {
     const {room, lobby, setRoom, users, setUsers} = useContext(UserContext)
-
+    const [name, setName] = useState('')
     const history = useHistory()
     
     socket.on("start", (room,url) => {
@@ -38,6 +38,8 @@ const Waiting = () => {
 
     socket.on("joined-room", (roomId, user) => {
             console.log(user)
+            setName(roomId)
+            
     })
 
     // when host starts game do a broadcast thing
@@ -46,7 +48,7 @@ const Waiting = () => {
             <NavbarNm/>
             
             <div className="d-flex flex-column justify-content-center waiting">
-            <h2 className="room-name">Room name: {room.name}</h2>
+            <h2 className="room-name">Room name: {name}</h2>
             <div aria-label="connectedUsers" className="user-container">
             <h4 className="players">Players:</h4>
             {users.map(user => <p>- {user}</p>)}
