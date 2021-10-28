@@ -25,13 +25,15 @@ export default function JoinRoom(props) {
             <button className="mainMenuBtns" aria-label="join" variant="primary" onClick={() => setModalShow(true)}>
                 JOIN ROOM
             </button>
+            <div className="d-flex justify-content-center">
             <Modal
                 {...props}
-                size="lg"
+                size="sm"
                 aria-labelledby="contained-modal-title-vcenter"
                 centered
                 show={modalShow}
                 onHide={() => setModalShow(false)}
+                className="modal ms-5"
             >
                 <Modal.Header closeButton>
                     <Modal.Title id="contained-modal-title-vcenter">
@@ -46,6 +48,7 @@ export default function JoinRoom(props) {
                 </Modal.Body>
 
             </Modal>
+            </div>
         </div>
     )
 }
