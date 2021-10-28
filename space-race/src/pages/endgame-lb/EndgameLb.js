@@ -10,10 +10,12 @@ export default function EndgameLb() {
     const [data, setData] = useState()
     const [players, setPlayers] = useState()
     const [isFetched, setIsFetched] = useState(false);
+    const [winner, setWinner] = useState()
 
     const { users } = useContext(UserContext)
 
     const handleClick = () => {
+        setWinner(players[0].username)
         setLeaderboard(true)
         console.log(users)
         updateWins()
@@ -111,7 +113,7 @@ export default function EndgameLb() {
             </div>
             <div className="leaderboard d-flex flex-column"> 
             
-            <h1>CONGRATS {players[0].username} YOU WON!! </h1>
+            <h1 hidden={!leaderboard}>CONGRATS {winner} YOU WON!! </h1>
             <Table striped bordered condensed hover hidden={!leaderboard} className="pleaderboard">
                 <thead>
                     <tr>
