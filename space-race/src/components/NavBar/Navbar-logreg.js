@@ -4,7 +4,7 @@ import '../../App.css';
 export default function NavbarLogReg() {
     return (
         <nav className="main-header-lr">
-            <h1 className="title">BRAINIFY</h1> 
+            <h1 className="heading">BRAINIFY</h1> 
         </nav>
     )
 }

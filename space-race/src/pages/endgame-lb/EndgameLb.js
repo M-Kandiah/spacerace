@@ -110,7 +110,7 @@ export default function EndgameLb() {
             <Button hidden={leaderboard} onClick={handleClick}>SHOW RESULTS</Button>
             </div>
             <div className="leaderboard"> 
-            <Table striped bordered condensed hover hidden={!leaderboard} class="pleaderboard">
+            <Table striped bordered condensed hover hidden={!leaderboard} className="pleaderboard">
                 <thead>
                     <tr>
                         <th>#</th>
