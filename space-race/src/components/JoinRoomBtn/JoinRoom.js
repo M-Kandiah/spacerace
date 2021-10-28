@@ -19,11 +19,11 @@ export default function JoinRoom(props) {
         setLobby('waiting');
         history.push("/waitingroom")
     }
-    const renderTooltip = (props) => (
+    const renderTooltip = (props) => {
         <Tooltip id="button-tooltip" {...props}>
             Join a room with your friends!
         </Tooltip>
-    );
+};
 
     return (
         <div>
@@ -37,11 +37,12 @@ export default function JoinRoom(props) {
             </OverlayTrigger>
             <Modal
                 {...props}
-                size="lg"
+                size="sm"
                 aria-labelledby="contained-modal-title-vcenter"
                 centered
                 show={modalShow}
                 onHide={() => setModalShow(false)}
+                className="modal ms-5"
             >
                 <Modal.Header closeButton>
                     <Modal.Title id="contained-modal-title-vcenter">
@@ -58,6 +59,7 @@ export default function JoinRoom(props) {
                 </Modal.Body>
 
             </Modal>
-        </div>
+            </div>
+        
     )
 }

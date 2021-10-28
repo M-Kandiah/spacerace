@@ -1,5 +1,6 @@
 import React, {useContext} from 'react'
 import '../../App.css';
+import { BiHomeAlt } from "react-icons/bi";
 import {socket} from '../../App'
 import {UserContext} from '../../contexts'
 
@@ -13,7 +14,7 @@ export default function Mainmenubtn() {
     }
     return (
         <div>
-            <button className="navbarBtn" type="button" onClick={handleClick}>Main Menu</button>
+            <button className="navbarBtn" type="button" onClick={handleClick}><BiHomeAlt size="24"/></button>
         </div>
     )
 }
