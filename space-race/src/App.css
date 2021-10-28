@@ -142,6 +142,10 @@ div.main-header-lr > h1 {
   
 }
 
+.signout {
+  margin-top: -100px;
+}
+
 .mainMenuBtns {
   padding: 1rem;
   border: 0.2px solid grey;
@@ -153,6 +157,10 @@ div.main-header-lr > h1 {
   box-shadow:0px 4px 4px 0px rgba(134, 132, 127,0.7)
 }
 
+.top-button {
+  margin-top: 0cm;
+}
+
 .mainMenuBtnd {
   width: 100%;
 }
@@ -160,6 +168,7 @@ div.main-header-lr > h1 {
 .title {
   text-align: center;
   font-family: 'VT323';
+  font-size: 125px;
   margin: auto;
 }
 
@@ -167,6 +176,7 @@ div.main-header-lr > h1 {
   margin-top: 150px;
   text-align: center;
   font-family: 'VT323';
+  font-size: 100px;
 }
 
 .user {

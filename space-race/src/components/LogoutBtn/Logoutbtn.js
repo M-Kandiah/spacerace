@@ -8,7 +8,7 @@ export default function Logoutbtn() {
         },10)
     } 
     return (
-        <div>
+        <div className="signout">
             <button className="navbarBtn" onClick={handleClick}>Sign Out</button>
         </div>
     )
