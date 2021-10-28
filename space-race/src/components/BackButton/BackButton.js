@@ -5,7 +5,7 @@ export default function BackButton() {
     let history = useHistory()
     return (
         <div>
-            <button className="navbarBtn" type="button" onClick={()=> history.goBack()}>Back</button>
+            <button id="back"className="navbarBtn" type="button" onClick={()=> history.goBack()}>Back</button>
         </div>
     )
 }
