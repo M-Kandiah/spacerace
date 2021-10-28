@@ -44,7 +44,7 @@ const Login = () => {
             <input type="username" name="username" value={formData.username} onChange={handleInput} placeholder="Username" className="m-1 username" />
             <input type="password" name="password" value={formData.password} onChange={handleInput} placeholder="Password" className="m-1 password" />
             { error && <div id="error">Wrong Username or Password</div> }
-            <input id="submit" type="submit" className={formIncomplete() ? 'disabled' : 'enabled'} disabled={formIncomplete()} value="Create Account" />
+            <input id="submit" type="submit" className={formIncomplete() ? 'disabled' : 'enabled'} disabled={formIncomplete()} value="Login" />
             <button onClick={handleClick} className="m-1 register-in" >Register instead</button>
         </form>
        

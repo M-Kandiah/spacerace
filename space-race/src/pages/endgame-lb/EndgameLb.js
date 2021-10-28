@@ -25,6 +25,9 @@ export default function EndgameLb() {
         }
     }
 
+    
+    
+    
     async function getData() {
         const result = await axios('https://quizappriamathusansam.herokuapp.com/users', options)
         console.log(result.data[0].username)
@@ -41,9 +44,18 @@ export default function EndgameLb() {
         console.log('below is v')
         console.log(v)
         console.log('above is v')
+        v.sort(function(a,b) {
+            return b.points - a.points
+        })
         setPlayers(v)
         setIsFetched(true)
     }
+
+    const updateWins = async () => {
+        
+    }
+
+
     useEffect(() => {
         getData()
 
