@@ -1,4 +1,4 @@
-import React, {useContext, useState} from 'react'
+import React, {useContext, useState, useEffect} from 'react'
 import {UserContext} from '../../contexts';
 import {useHistory} from 'react-router-dom'
 import Container from '../../components/Lobby/Container'
@@ -10,19 +10,19 @@ const Waiting = () => {
     const {room, lobby, setRoom} = useContext(UserContext)
 
     const history = useHistory()
-    const [users,setUsers] = useState('')
+    const [users,setUsers] = useState([])
 
     
     socket.on("start", (room,url) => {
         console.log("hello")
         setRoom(room)
-        console.log(room.id)
+        // console.log(room.id)
         history.push(url)
     })
 
     const handleClick = (e) => {
         e.preventDefault()
-        console.log(room)
+        // console.log(room)
         socket.emit("start-game", room, "/game")
     }
 
@@ -33,12 +33,15 @@ const Waiting = () => {
             return <p>Waiting for host to start the game...</p>
         }
     }
-
-    socket.on("joined-room", (roomId, user) => {
-        console.log(roomId)
-        console.log(user)
-        setUsers(user)
+    let userList = []
+    socket.on("joined-room", (users) => {
+        // console.log(roomId)
+        console.log(users)
+        userList.push(users)
+        setUsers(userList)
     })
+
+    
 
     // when host starts game do a broadcast thing
     return (
@@ -50,7 +53,7 @@ const Waiting = () => {
             {/* <Container/> */}
             {/* start game button/waiting p */}
             {startButton()}
-            { users ? `${users} is waiting...` : ''}
+            {users.map(user => <p>{user} is waiting...</p>)}
         </div>
     )
 }
