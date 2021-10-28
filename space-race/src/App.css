@@ -1,3 +1,7 @@
+
+* {
+  font-family: 'Roboto', sans-serif;
+}
 .App {
   text-align: center;
 }
@@ -49,3 +53,47 @@
   align-items: center;
 }
 
+/* LOGIN FORM  */
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 5%;
+}
+form button {
+    background-color: transparent;
+    color: #76b8ce;
+    font-weight: 800;
+    box-shadow: none;
+    border: none;
+    outline:none;
+}
+form button:focus{
+    outline:none;
+}
+input {
+  padding: 1rem;
+  border: 0.2px solid grey;
+  border-radius: 5px;
+  font-family: monospace;
+  width: 50%;
+  margin: 0.5rem;
+}
+#submit {
+  background-color: #a452f5;
+}
+ul, ol {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+.enabled {
+   
+    box-shadow: 5px 5px;
+    transition:0.4s
+}
+.enabled:hover {
+    box-shadow: none;
+    transform: translateY(2px)
+}

@@ -1,10 +1,10 @@
 import React from 'react'
+import '../../App.css';
 
 export default function NavbarLogReg() {
     return (
-        <div className="main-header-lr">
-            <h1>SPACE RACE</h1>
-            
-        </div>
+        <nav className="main-header-lr">
+            <h1>SPACE RACE</h1> 
+        </nav>
     )
 }

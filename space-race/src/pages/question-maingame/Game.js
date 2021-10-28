@@ -5,6 +5,7 @@ import NavbarNm from '../../components/NavBar/Navbar-nm';
 import CircleTimer from '../../components/Circletimer/CircleTimer';
 import { UserContext } from '../../contexts'
 import { socket } from '../../App';
+import NavbarGame from '../../components/NavBar/Navbar-game';
 export default function Game() {
     const history = useHistory()
     const { room } = useContext(UserContext)
@@ -164,7 +165,7 @@ export default function Game() {
 
     return (
         <>
-            <NavbarNm />
+            <NavbarGame/>
             <p id='question'>{isFetched ? question : null}</p>
             <div className="d-flex flex-row flex-wrap">
                 <button key={qCounter + 111} id="answer1" onClick={handleClick} className="w-50" disabled={disabled}>{isFetched ? answers[0] : null}</button>
