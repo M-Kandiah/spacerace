@@ -46,7 +46,7 @@ body{
   }
 }
 
-.main-header, .main-header-lr  { 
+.main-header { 
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -100,9 +100,9 @@ ul, ol {
 
 /* NAVBAR STUFF */
 
-.main-header-lr {
-  margin-left: 815px;
-  margin-top: 300px;
+div.main-header-lr > h1 {
+  display: flex;
+  align-items: center;
   text-align: center;
 }
 
@@ -154,6 +154,19 @@ ul, ol {
 .title {
   text-align: center;
   font-family: 'VT323';
+  margin: auto;
+}
+
+.heading {
+  margin-top: 150px;
+  text-align: center;
+  font-family: 'VT323';
+}
+
+.user {
+  margin-top: 50px;
+  margin-bottom: 10px;
+  text-align: center;
   font-size: 100px;
 }
 
