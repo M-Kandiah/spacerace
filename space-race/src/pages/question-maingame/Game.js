@@ -173,8 +173,8 @@ export default function Game() {
         e.preventDefault()
         const id = localStorage.getItem("userId")
         console.log(e)
-        if (e.target.textContent.replace(/&amp;/g, "&").replace(/&#039;/g, "").replace(/&quot;/g, "''").replace(/&eacute;/g, "é") === correctAnswer) {
-            e.target.classList.add('bg-success')
+        if (e.target.textContent.replace(/&amp;/g, "&").replace(/&#039;/g, "").replace(/&quot;/g, "''").replace(/&eacute;/g, "é").replace(/&rsqo:/g, "'") === correctAnswer) {
+            e.target.classList.add('bg-correct')
             console.log(localStorage.getItem('token'))
             await axios.patch(`https://quizappriamathusansam.herokuapp.com/users/${id}/points`, bodyCorrect, options) // hardcoded for user big boy sam, get user ID in auth context and put it in local storage and then use ${localStorage.getItem(userID)}
             console.log('success?')
@@ -182,7 +182,7 @@ export default function Game() {
 
         } else {
             await axios.patch(`https://quizappriamathusansam.herokuapp.com/users/${id}/points`, bodyWrong, options) // hardcoded for user big boy sam, get user ID in auth context and put it in local storage and then use ${localStorage.getItem(userID)}
-            e.target.classList.add('bg-danger')
+            e.target.classList.add('bg-wrong')
             setDisabled(true)
         }
     }
@@ -196,14 +196,18 @@ export default function Game() {
     return (
         <>
             <NavbarGame />
-            <p id='question'>{isFetched ? question : null}</p>
-            <div className="d-flex flex-row flex-wrap">
-                <button key={qCounter + 111} id="answer1" onClick={handleClick} className="w-50" disabled={disabled}>{isFetched ? answers[0] : null}</button>
-                <button key={qCounter + 222} id="answer2" onClick={handleClick} className="w-50" disabled={disabled}>{isFetched ? answers[1] : null}</button>
-                <button key={qCounter + 333} id="answer3" onClick={handleClick} className="w-50" disabled={disabled}>{isFetched ? answers[2] : null}</button>
-                <button key={qCounter + 444} id="answer4" onClick={handleClick} className="w-50" disabled={disabled}>{isFetched ? answers[3] : null}</button>
+            <div className="d-flex flex-column align-items-center">
+            <h4 id='question'>{isFetched ? question : null}</h4>
+            <div className="d-flex flex-row flex-wrap w-75">
+                <button key={qCounter + 111} id="answer1" onClick={handleClick} className="w-100 answer m-2" disabled={disabled}>{isFetched ? answers[0] : null}</button>
+                <button key={qCounter + 222} id="answer2" onClick={handleClick} className="w-100 answer m-2" disabled={disabled}>{isFetched ? answers[1] : null}</button>
+                <button key={qCounter + 333} id="answer3" onClick={handleClick} className="w-100 answer m-2" disabled={disabled}>{isFetched ? answers[2] : null}</button>
+                <button key={qCounter + 444} id="answer4" onClick={handleClick} className="w-100 answer m-2" disabled={disabled}>{isFetched ? answers[3] : null}</button>
             </div>
+            <div className="timer">
             {isFetched ? <CircleTimer key={qCounter} /> : null}
+            </div>
+            </div>
         </>
     )
 }

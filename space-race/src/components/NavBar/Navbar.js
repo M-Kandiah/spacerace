@@ -8,7 +8,7 @@ import BackButton from '../BackButton/BackButton';
 export default function NavbarMain() {
     return (
         <nav className="main-header">
-            <button value="back" id="backButton">Back</button>
+            <button value="back" id="backButton" disabled>Back</button>
             <h1 >SPACE RACE</h1>
             <Logoutbtn />
         </nav>
