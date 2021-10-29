@@ -5,7 +5,7 @@ import '../../App.css';
 
 export default function NavbarNm() {
     return (
-        <nav className="main-header">
+        <nav className="main-headers">
             <BackButton/>
         
             <Mainmenubtn/>

@@ -5,7 +5,7 @@ import '../../App.css';
 
 export default function NavbarGame() { 
     return (
-        <nav className="main-header">
+        <nav className="main-headers">
             
             <h1 className="">BRAINIFY</h1>
            
