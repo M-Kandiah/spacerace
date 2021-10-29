@@ -46,7 +46,7 @@ const Waiting = () => {
 
     // when host starts game do a broadcast thing
     return (
-        <div>gi
+        <div>
             <NavbarNm/>
             
             <div className="d-flex flex-column justify-content-center waiting">
