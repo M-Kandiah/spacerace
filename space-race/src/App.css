@@ -227,9 +227,10 @@ select {
   border: 1px solid black;
   border-radius: 5px;
   padding:0.5rem;
-  width: 50%;
+  width: 60%;
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
   justify-content: flex-start;
   align-items: flex-start;
   height: 250px;
@@ -245,6 +246,11 @@ select {
 
 .waiting-message {
   margin-top: 10px;
+}
+
+.users {
+  padding: 0;
+  margin: 0;
 }
 
 /* Main Game */

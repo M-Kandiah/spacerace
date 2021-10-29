@@ -53,7 +53,7 @@ const Waiting = () => {
             <h2 className="room-name">Room name: {name}</h2>
             <div aria-label="connectedUsers" className="user-container">
             <h4 className="players">Players:</h4>
-            {users.map(user => <p>- {user}</p>)}
+            {users.map(user => <p className="users">- {user}</p>)}
             </div>
             {startButton()}
             </div>
