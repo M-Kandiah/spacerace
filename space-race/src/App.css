@@ -333,4 +333,45 @@ select {
 
   }
 
+  .title {
+    font-size: 80px ;
+  }
+
+  .signout {
+    margin-top: 4px;
+  }
+
+  .main-header {
+    flex-direction: column;
+  }
+
+  .username-heading {
+      margin-top: 5px;
+      font-size: 40px;
+  }
+
+  .mainMenuBtns {
+    margin-top: 15%;
+  }
+
+  .top-button {
+    margin-top: 1rem;
+  }
+
+}
+
+@media only screen and (max-width: 373px) {
+  .mainMenuBtns {
+  
+    margin-top: 10%;
+  }
+
+  .top-button {
+    margin-top: -15px;
+  }
+
+  .username-heading {
+    font-size: 30px;
+    margin-top: 0px;
+  }
 }
